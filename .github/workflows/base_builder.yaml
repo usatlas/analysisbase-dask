@@ -26,7 +26,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5.0.0
         with:
-          context: docker/
+          context: docker
           push: true
           tags: sslhep/analysis-dask-base:latest, sslhep/analysis-dask-base:${{ github.sha }}
 
