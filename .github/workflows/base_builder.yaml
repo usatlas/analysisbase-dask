@@ -35,6 +35,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2.1.2
         with:
           token: ${{ secrets.GITOPS_REBUILD_TRIGGER }}
-          repository: analysis-dask/usatlas
+          repository: usatlas/analysisbase-dask-uc
           event-type: gitops-analysis-base-trigger
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
