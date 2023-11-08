@@ -1,0 +1,10 @@
+uproot==5.1.2
+dask[distributed]==2023.10.0
+dask-awkward==2023.10.1
+# jupyter
+notebook==7.0.6
+jupyterlab==4.0.7
+urllib3<2  # See: https://github.com/urllib3/urllib3/issues/2168
+# extras
+jupytext==1.15.2
+pandas==2.1.1
