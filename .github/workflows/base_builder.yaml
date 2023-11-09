@@ -23,13 +23,24 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Login to Harbor Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: hub.opensciencegrid.org
+          username: ${{ secrets.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_PASSWORD }}
+
       - name: Build and push
         uses: docker/build-push-action@v5.0.0
         with:
           context: .
           file: docker/Dockerfile
           push: true
-          tags: sslhep/analysis-dask-base:latest, sslhep/analysis-dask-base:${{ github.sha }}
+          tags: |
+            sslhep/analysis-dask-base:latest
+            sslhep/analysis-dask-base:${{ github.sha }}
+            hub.opensciencegrid.org/usatlas/analysis-dask-base:latest
+            hub.opensciencegrid.org/usatlas/analysis-dask-base:${{ github.sha }}
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2.1.2
