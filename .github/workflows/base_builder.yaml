@@ -2,7 +2,9 @@ name: Build AnalysisBase base image
 on:
   push:
     branches:
-      - "main"
+      - "**"
+    tags:
+      - "v*.*.*"
 
 jobs:
   docker:
@@ -10,6 +12,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            sslhep/analysis-dask-base
+            hub.opensciencegrid.org/usatlas/analysis-dask-base       
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=sha  
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.0.0
@@ -36,11 +53,8 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: true
-          tags: |
-            sslhep/analysis-dask-base:latest
-            sslhep/analysis-dask-base:${{ github.sha }}
-            hub.opensciencegrid.org/usatlas/analysis-dask-base:latest
-            hub.opensciencegrid.org/usatlas/analysis-dask-base:${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2.1.2
