@@ -11,11 +11,11 @@ When [configuring](https://af.uchicago.edu/jupyterlab/configure) the Jupyter Lab
 ### Locally
 
 ```
-docker pull matthewfeickert/analysisbase-dask:24.2.26
+docker pull sslhep/analysis-dask-base:latest
 ```
 
 ```
-docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis matthewfeickert/analysisbase-dask:24.2.26
+docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis sslhep/analysis-dask-base:latest
 ```
 
 (as using Jupytext right click `.py` files to open as a Jupyter notebook)
@@ -23,7 +23,7 @@ docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis matthewfeickert/
 #### Without using the JupyterLab environment
 
 ```
-docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis matthewfeickert/analysisbase-dask:24.2.26 /bin/bash
+docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis sslhep/analysis-dask-base:latest /bin/bash
 ```
 
 ## AnalysisBase images
