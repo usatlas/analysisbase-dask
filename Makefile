@@ -23,8 +23,8 @@ build:
 	docker build \
 		--file docker/Dockerfile \
 		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26 \
-		--tag example/analysisbase-dask:24.2.26 \
+		--tag sslhep/analysis-dask-base:debug \
 		.
 
 tag:
-	docker tag example/analysisbase-dask:24.2.26 matthewfeickert/analysisbase-dask:24.2.26
+	docker tag sslhep/analysis-dask-base:debug sslhep/analysis-dask-base:latest
