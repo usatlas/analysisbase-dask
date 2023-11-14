@@ -5,6 +5,9 @@ SHELL [ "/bin/bash", "-c" ]
 
 USER root
 
+# needed for dasklab extension.
+RUN yum install -y nodejs 
+
 COPY --chown=atlas docker/requirements.txt /docker/
 COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
@@ -26,6 +29,8 @@ RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n
     python --version --version && \
     python -m pip list && \
     root --version
+
+RUN chmod +x /release_setup.sh
 
 USER atlas
 
