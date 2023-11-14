@@ -6,7 +6,7 @@ SHELL [ "/bin/bash", "-c" ]
 USER root
 
 # needed for dasklab extension.
-RUN yum install -y nodejs 
+RUN yum install -y nodejs
 
 COPY --chown=atlas docker/requirements.txt /docker/
 COPY --chown=atlas docker/requirements.lock /docker/
@@ -32,28 +32,31 @@ RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n
 
 RUN chmod +x /release_setup.sh
 
-# FIXME: Use a smarter way of installing
+# Need to use an additonal directory beyond /usr/AnalysisBase to install
+# given how ATLAS CMake works.
 # c.f. https://gitlab.cern.ch/gstark/pycolumnarprototype/-/issues/2
 RUN . /release_setup.sh && \
     cd /tmp && \
     git clone \
-    --recurse-submodules \
-    --branch py_el_tool_test \
+        --recurse-submodules \
+        --branch py_el_tool_test \
     https://gitlab.cern.ch/gstark/pycolumnarprototype.git && \
     cd pycolumnarprototype && \
     cmake \
-    -S src \
-    -B build && \
+        -S src \
+        -B build && \
     cmake build -LH && \
     cmake \
-    --build build \
-    --clean-first \
-    --parallel "$(nproc --ignore=1)" && \
-    cp -r "build/${AnalysisBase_PLATFORM}/lib/"* "${AnalysisBase_DIR}/lib/" && \
-    cp -r "build/${AnalysisBase_PLATFORM}/include/"* "${AnalysisBase_DIR}/include/" && \
-    cp -r "build/${AnalysisBase_PLATFORM}/bin/"* "${AnalysisBase_DIR}/bin/" && \
+        --build build \
+        --clean-first \
+        --parallel "$(nproc --ignore=1)" && \
+    DESTDIR=/usr/tools cmake --install build && \
     cd /tmp && \
     rm -rf pycolumnarprototype && \
+    echo -e "\n# Set up the PyColumnarPrototype tool:" >> /release_setup.sh && \
+    echo -e ". $(find /usr/tools -type f -iname 'setup.sh')" >> /release_setup.sh && \
+    echo -e 'echo "Configured PyColumnarPrototype from: ${PyColumnarPrototypeDemo_DIR}"' >> /release_setup.sh && \
+    . /release_setup.sh && \
     python -c 'import PyColumnarPrototype; print(f"{PyColumnarPrototype.column_maker()=}")'
 
 USER atlas
