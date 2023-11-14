@@ -1,6 +1,12 @@
 uproot==5.1.2
 dask[distributed]==2023.10.0
 dask-awkward==2023.10.1
+# Z->ee notebook
+coffea==2023.10.0rc1
+zstandard==0.22.0
+mplhep==0.3.31
+vector==1.1.1
+weightedstats==0.4.1
 # jupyter
 notebook==7.0.6
 jupyterlab==4.0.7

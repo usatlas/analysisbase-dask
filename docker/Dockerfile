@@ -32,6 +32,30 @@ RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n
 
 RUN chmod +x /release_setup.sh
 
+# FIXME: Use a smarter way of installing
+# c.f. https://gitlab.cern.ch/gstark/pycolumnarprototype/-/issues/2
+RUN . /release_setup.sh && \
+    cd /tmp && \
+    git clone \
+    --recurse-submodules \
+    --branch py_el_tool_test \
+    https://gitlab.cern.ch/gstark/pycolumnarprototype.git && \
+    cd pycolumnarprototype && \
+    cmake \
+    -S src \
+    -B build && \
+    cmake build -LH && \
+    cmake \
+    --build build \
+    --clean-first \
+    --parallel "$(nproc --ignore=1)" && \
+    cp -r "build/${AnalysisBase_PLATFORM}/lib/"* "${AnalysisBase_DIR}/lib/" && \
+    cp -r "build/${AnalysisBase_PLATFORM}/include/"* "${AnalysisBase_DIR}/include/" && \
+    cp -r "build/${AnalysisBase_PLATFORM}/bin/"* "${AnalysisBase_DIR}/bin/" && \
+    cd /tmp && \
+    rm -rf pycolumnarprototype && \
+    python -c 'import PyColumnarPrototype; print(f"{PyColumnarPrototype.column_maker()=}")'
+
 USER atlas
 
 CMD [ "/cmd.sh" ]
