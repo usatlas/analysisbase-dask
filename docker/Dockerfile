@@ -62,4 +62,12 @@ RUN . /release_setup.sh && \
 
 USER atlas
 
+# Setup environment for default user 'atlas'
+RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_setup.sh\n' >> /home/atlas/.bashrc && \
+    . /release_setup.sh && \
+    mkdir -p $(jupyter --config)
+
+# $(jupyter --config) should be /home/atlas/.jupyter/
+COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
+
 CMD [ "/cmd.sh" ]
