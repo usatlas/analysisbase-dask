@@ -16,7 +16,7 @@ WORKDIR /analysis
 
 COPY --chown=atlas /docker/cmd.sh /cmd.sh
 
-RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi\n' >> /release_setup.sh && \
+RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi' >> /release_setup.sh && \
     bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.4/cvmfs-venv.sh) /venv && \
     chown -R atlas /venv && \
     . /release_setup.sh && \
@@ -58,7 +58,11 @@ RUN . /release_setup.sh && \
     echo -e ". $(find /usr/tools -type f -iname 'setup.sh')" >> /release_setup.sh && \
     echo -e 'echo "Configured PyColumnarPrototype from: ${PyColumnarPrototypeDemo_DIR}"' >> /release_setup.sh && \
     . /release_setup.sh && \
+    cvmfs-venv-rebase && \
     python -c 'import PyColumnarPrototype; print(f"{PyColumnarPrototype.column_maker()=}")'
+
+# Always have this be the last edit to /release_setup.sh
+RUN echo -e "\n# Ensure that the virtual environment is always at the HEAD of PYTHONPATH\ncvmfs-venv-rebase" >> /release_setup.sh
 
 USER atlas
 
