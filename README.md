@@ -38,3 +38,26 @@ More easily though, you can just use [`crane`](https://github.com/google/go-cont
 ```
 crane ls gitlab-registry.cern.ch/atlas/athena/analysisbase
 ```
+
+## Updating image dependencies
+
+All the Python dependencies installed into the default Python virtual environment in the container image are installed from a lock file.
+To update the dependencies and the lock file:
+
+1. Make a new branch.
+2. Figure out what the version of the dependency you want to install is with
+
+```
+python -m pip index versions <dependency name>
+```
+
+3. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
+
+Example:
+```
+dask-labextension==7.0.0
+```
+
+4. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
+5. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
+6. Open a PR with the changes and wait for the CI to verify the build passes.
