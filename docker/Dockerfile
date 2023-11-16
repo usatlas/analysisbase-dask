@@ -6,7 +6,9 @@ SHELL [ "/bin/bash", "-c" ]
 USER root
 
 # needed for dasklab extension.
-RUN yum install -y nodejs && \
+RUN yum install -y \
+        nodejs \
+        graphviz && \
     yum clean all
 
 COPY --chown=atlas docker/requirements.txt /docker/
