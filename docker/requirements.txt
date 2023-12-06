@@ -1,6 +1,5 @@
-# uproot==5.1.2
 # c.f. https://github.com/scikit-hep/uproot5/issues/1038
-uproot @ https://github.com/scikit-hep/uproot5/archive/0ace10af972ba825d98c28fa7df97cd3ef0b480f.zip
+uproot==5.2.0rc3
 dask[distributed]==2023.11.0
 dask-awkward==2023.11.2
 fsspec-xrootd==0.2.2

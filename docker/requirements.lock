@@ -2281,8 +2281,9 @@ uhi==0.4.0 \
     # via
     #   histoprint
     #   mplhep
-uproot @ https://github.com/scikit-hep/uproot5/archive/0ace10af972ba825d98c28fa7df97cd3ef0b480f.zip \
-    --hash=sha256:680b9a7571f9a17ad4a9e3bc3caa0abb9a47ef92665990ee7d646cff74b303f2
+uproot==5.2.0rc3 \
+    --hash=sha256:6658ec5f8439b09c1b5f10ea6e55c155b59279448710ffa183384e4fc5c63652 \
+    --hash=sha256:f42b40600b747e1186fbc767a733bff644c66a3313b9d7f6b51dc59028868c26
     # via
     #   -r requirements.txt
     #   coffea
