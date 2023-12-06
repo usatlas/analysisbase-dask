@@ -911,7 +911,9 @@ jupyter-server==2.10.0 \
 jupyter-server-proxy==4.1.0 \
     --hash=sha256:2cfac3b4232fe7144e8e60296b4f861708b4f13b29260a2cf28976bf8e617f70 \
     --hash=sha256:3a417d6996e47a90ba5ec5dd2603887cfd2efbc4abf850a1a0fbe77e3b4d04e9
-    # via dask-labextension
+    # via
+    #   -r requirements.txt
+    #   dask-labextension
 jupyter-server-terminals==0.4.4 \
     --hash=sha256:57ab779797c25a7ba68e97bcfb5d7740f2b5e8a83b5e8102b10438041a7eac5d \
     --hash=sha256:75779164661cec02a8758a5311e18bb8eb70c4e86c6b699403100f1585a12a36
