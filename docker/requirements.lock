@@ -765,9 +765,9 @@ fsspec==2023.10.0 \
     #   dask
     #   fsspec-xrootd
     #   uproot
-fsspec-xrootd==0.2.2 \
-    --hash=sha256:107644704b2bb36e1fc8d7f81f2e55e0bb34d7bc12b74ff4f2ffabf65bfcf79e \
-    --hash=sha256:37ee9ea99ee866d685e0442dc5b5f6bb3114dc4abc05c4c5f7d986a25509cc8e
+fsspec-xrootd==0.2.3 \
+    --hash=sha256:4eb307a1ebf796008360ab3a67b832151246dd0d91550624b326d26dac1375ce \
+    --hash=sha256:90dbe7ec13d113060ba2e67a7019bd42e37906184b5f84a682cf5b8cded99bd0
     # via
     #   -r requirements.txt
     #   coffea
