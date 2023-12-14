@@ -1,20 +1,19 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.0
-#   kernelspec:
-#     display_name: Example venv kernel
-#     language: python
-#     name: example-venv
-# ---
-
+# %% [markdown]
 # Based off of discussion https://github.com/usatlas/analysisbase-dask/issues/4#issuecomment-1831744390
+#
+# and updated by https://github.com/usatlas/analysisbase-dask/issues/4#issuecomment-1854374286
 
-# +
+# %%
+import warnings
+
+import awkward as ak
+import hist.dask
+from coffea.nanoevents import NanoEventsFactory, PHYSLITESchema
+from distributed import Client
+
+warnings.filterwarnings("ignore")
+
+# %%
 xc = "root://xcache.af.uchicago.edu:1094//"
 file_uri = (
     xc
@@ -26,29 +25,23 @@ file_uri_two = (
     + "root://fax.mwt2.org:1094//pnfs/uchicago.edu/atlaslocalgroupdisk/rucio/data18_13TeV/6c/67/DAOD_PHYSLITE.34858087._000002.pool.root.1"
 )
 
-# +
-import warnings
-
-import awkward as ak
-import hist.dask
-from coffea.nanoevents import NanoEventsFactory, PHYSLITESchema
-
-warnings.filterwarnings("ignore")
-
+# %%
 delayed_hist = hist.dask.Hist.new.Reg(120, 0, 120, label="mass [GeV]").Weight()
 
 
-# +
+# %%
 def filter_name(name):
-    return name in [
+    return name in (
         "AnalysisElectronsAuxDyn.pt",
         "AnalysisElectronsAuxDyn.eta",
         "AnalysisElectronsAuxDyn.phi",
         "AnalysisElectronsAuxDyn.m",
-    ]
+    )
 
 
+# %%
 tree_name = "CollectionTree"
+client = Client()
 
 # Question: What is the best way to run over a large collection of files here?
 # Write a function?
@@ -59,7 +52,7 @@ events = NanoEventsFactory.from_root(
     uproot_options=dict(filter_name=filter_name),
 ).events()
 
-# +
+# %%
 el_p4 = events.Electrons
 
 # select 2-electron events
@@ -69,7 +62,12 @@ el_p4 = el_p4[evt_filter]
 # fill histogram with di-electron system invariant mass and plot
 delayed_hist.fill((el_p4[:, 0] + el_p4[:, 1]).mass / 1_000)
 artists = delayed_hist.compute().plot()
-# -
 
+# %%
 fig = artists[0][0].get_figure()
+ax = fig.get_axes()[0]
+
+ax.set_ylabel("Count")
 fig.savefig("mass.png")
+
+fig  # Show figure again in notebook
