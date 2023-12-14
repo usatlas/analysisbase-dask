@@ -48,8 +48,8 @@ client = Client()
 events = NanoEventsFactory.from_root(
     {file_uri: tree_name, file_uri_two: tree_name},
     schemaclass=PHYSLITESchema,
-    permit_dask=True,
     uproot_options=dict(filter_name=filter_name),
+    delayed=True,
 ).events()
 
 # %%
