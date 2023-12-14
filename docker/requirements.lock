@@ -462,9 +462,9 @@ cloudpickle==3.0.0 \
     #   coffea
     #   dask
     #   distributed
-coffea==2023.12.0rc1 \
-    --hash=sha256:1d5fe640afb53b69271430c09c734d96ec6775668cd91738d880d553f1093c7d \
-    --hash=sha256:fb46d676c4e69a0cf95550ba92751bbd317b22b5657263b68fe6c22f09cf5b4b
+coffea==2023.12.0 \
+    --hash=sha256:b767ceca83781315fc84c192c133a274f0bea752ae39dfd991585237b825c8b4 \
+    --hash=sha256:f9b1237a102dddff43d58af775d5ec8d174971772244c525202322460ea2f784
     # via -r requirements.txt
 comm==0.2.0 \
     --hash=sha256:2da8d9ebb8dd7bfc247adaff99f24dce705638a8042b85cb995066793e391001 \
