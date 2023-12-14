@@ -15,15 +15,15 @@ warnings.filterwarnings("ignore")
 
 # %%
 xc = "root://xcache.af.uchicago.edu:1094//"
-file_uri = (
-    xc
-    + "root://fax.mwt2.org:1094//pnfs/uchicago.edu/atlaslocalgroupdisk/rucio/data18_13TeV/df/a4/DAOD_PHYSLITE.34858087._000001.pool.root.1"
-)
+# file_uri = (
+#     xc
+#     + "root://fax.mwt2.org:1094//pnfs/uchicago.edu/atlaslocalgroupdisk/rucio/data18_13TeV/df/a4/DAOD_PHYSLITE.34858087._000001.pool.root.1"
+# )
 
-file_uri_two = (
-    xc
-    + "root://fax.mwt2.org:1094//pnfs/uchicago.edu/atlaslocalgroupdisk/rucio/data18_13TeV/6c/67/DAOD_PHYSLITE.34858087._000002.pool.root.1"
-)
+# file_uri_two = (
+#     xc
+#     + "root://fax.mwt2.org:1094//pnfs/uchicago.edu/atlaslocalgroupdisk/rucio/data18_13TeV/6c/67/DAOD_PHYSLITE.34858087._000002.pool.root.1"
+# )
 
 # %%
 delayed_hist = hist.dask.Hist.new.Reg(120, 0, 120, label="mass [GeV]").Weight()
@@ -41,12 +41,30 @@ def filter_name(name):
 
 # %%
 tree_name = "CollectionTree"
+
+
+def get_data_dict(n=10):
+    r = {}
+    # with open("data.txt",'r') as readfile:
+    with open("mc.txt", "r") as readfile:
+        ls = readfile.readlines()
+        print(len(ls))
+        for i in range(0, min(n, len(ls))):
+            r[xc + ls[i].strip()] = tree_name
+    return r
+
+
+infile = get_data_dict(100)
+# infile=get_data_dict(10)
+
+# %%
 client = Client()
 
 # Question: What is the best way to run over a large collection of files here?
 # Write a function?
 events = NanoEventsFactory.from_root(
-    {file_uri: tree_name, file_uri_two: tree_name},
+    # {file_uri: tree_name, file_uri_two: tree_name},
+    infile,
     schemaclass=PHYSLITESchema,
     uproot_options=dict(filter_name=filter_name),
     delayed=True,
