@@ -469,7 +469,9 @@ coffea==2023.12.0 \
 comm==0.2.0 \
     --hash=sha256:2da8d9ebb8dd7bfc247adaff99f24dce705638a8042b85cb995066793e391001 \
     --hash=sha256:a517ea2ca28931c7007a7a99c562a0fa5883cfb48963140cf642c41c948498be
-    # via ipykernel
+    # via
+    #   ipykernel
+    #   ipywidgets
 contourpy==1.2.0 \
     --hash=sha256:0274c1cb63625972c0c007ab14dd9ba9e199c36ae1a231ce45d725cbcbfd10a8 \
     --hash=sha256:0d7e03c0f9a4f90dc18d4e77e9ef4ec7b7bbb437f7f675be8e530d65ae6ef956 \
@@ -831,7 +833,13 @@ ipykernel==6.26.0 \
 ipython==8.17.2 \
     --hash=sha256:126bb57e1895594bb0d91ea3090bbd39384f6fe87c3d57fd558d0670f50339bb \
     --hash=sha256:1e4d1d666a023e3c93585ba0d8e962867f7a111af322efff6b9c58062b3e5444
-    # via ipykernel
+    # via
+    #   ipykernel
+    #   ipywidgets
+ipywidgets==8.1.1 \
+    --hash=sha256:2b88d728656aea3bbfd05d32c747cfd0078f9d7e159cf982433b58ad717eed7f \
+    --hash=sha256:40211efb556adec6fa450ccc2a77d59ca44a060f4f9f136833df59c9f538e6e8
+    # via -r requirements.txt
 iso8601==2.1.0 \
     --hash=sha256:6b1d3829ee8921c4301998c909f7829fa9ed3cbdac0d3b16af2d743aed1ba8df \
     --hash=sha256:aac4145c4dcb66ad8b648a02830f5e2ff6c24af20f4f482689be402db2429242
@@ -936,6 +944,10 @@ jupyterlab-server==2.25.1 \
     # via
     #   jupyterlab
     #   notebook
+jupyterlab-widgets==3.0.9 \
+    --hash=sha256:3cf5bdf5b897bf3bccf1c11873aa4afd776d7430200f765e0686bd352487b58d \
+    --hash=sha256:6005a4e974c7beee84060fdfba341a3218495046de8ae3ec64888e5fe19fdb4c
+    # via ipywidgets
 jupytext==1.15.2 \
     --hash=sha256:c9976e24d834e991906c1de55af4b6d512d764f6372aabae45fc1ea72b589173 \
     --hash=sha256:ef2a1a3eb8f63d84a3b3772014bdfbe238e4e12a30c4309b8c89e0a54adeb7d1
@@ -2247,6 +2259,7 @@ traitlets==5.13.0 \
     #   comm
     #   ipykernel
     #   ipython
+    #   ipywidgets
     #   jupyter-client
     #   jupyter-core
     #   jupyter-events
@@ -2331,6 +2344,10 @@ weightedstats==0.4.1 \
     --hash=sha256:6ead0c27df10b0598d7e3a1c2bc201b925f5ac47099df0dafccce91932a5d155 \
     --hash=sha256:beb488a3f46aa06dbc8491578ec7e408847ca682edc7ec90846f6df9e36cab50
     # via -r requirements.txt
+widgetsnbextension==4.0.9 \
+    --hash=sha256:3c1f5e46dc1166dfd40a42d685e6a51396fd34ff878742a3e47c6f0cc4a2a385 \
+    --hash=sha256:91452ca8445beb805792f206e560c1769284267a30ceb1cec9f5bcc887d15175
+    # via ipywidgets
 xyzservices==2023.10.1 \
     --hash=sha256:091229269043bc8258042edbedad4fcb44684b0473ede027b5672ad40dc9fa02 \
     --hash=sha256:6a4c38d3a9f89d3e77153eff9414b36a8ee0850c9e8b85796fd1b2a85b8dfd68
