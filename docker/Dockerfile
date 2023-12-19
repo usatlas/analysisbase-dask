@@ -84,6 +84,6 @@ RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_se
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
 
-ENTRYPOINT ["tini", "-g", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/tini", "-g", "--", "/entrypoint.sh"]
 
 CMD [ "/cmd.sh" ]
