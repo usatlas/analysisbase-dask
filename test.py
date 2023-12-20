@@ -99,10 +99,10 @@ el_p4 = el_p4[evt_filter]
 # %%
 # fill histogram with di-electron system invariant mass and plot
 delayed_hist = hist.dask.Hist.new.Reg(120, 0, 120, label="mass [GeV]").Weight()
+delayed_hist.fill((el_p4[:, 0] + el_p4[:, 1]).mass / 1_000)
 
 # This takes about 5 minutes for 50 files and 1 worker
 _start = time.time()
-delayed_hist.fill((el_p4[:, 0] + el_p4[:, 1]).mass / 1_000)
 result_hist = delayed_hist.compute()
 _stop = time.time()
 
@@ -123,6 +123,7 @@ cluster
 # %%
 # fill histogram with di-electron system invariant mass and plot
 delayed_hist = hist.dask.Hist.new.Reg(120, 0, 120, label="mass [GeV]").Weight()
+delayed_hist.fill((el_p4[:, 0] + el_p4[:, 1]).mass / 1_000)
 
 # This takes about:
 # 24 seconds for 50 files and 10 workers
@@ -130,7 +131,6 @@ delayed_hist = hist.dask.Hist.new.Reg(120, 0, 120, label="mass [GeV]").Weight()
 # 11 seconds for 50 files and 50 workers
 # 12 seconds for 50 files and 100 workers
 _start = time.time()
-delayed_hist.fill((el_p4[:, 0] + el_p4[:, 1]).mass / 1_000)
 result_hist = delayed_hist.compute()
 _stop = time.time()
 
