@@ -45,7 +45,7 @@ client
 
 # %%
 # Without filter_name then delayed_hist.compute() will error with
-# AttributeError: 'NoneType' object has no attribute 'reset_active_node
+# AttributeError: 'NoneType' object has no attribute 'reset_active_node'
 def filter_name(name):
     return name in (
         "AnalysisElectronsAuxDyn.pt",
@@ -56,6 +56,7 @@ def filter_name(name):
 
 
 # %%
+xc = "root://xcache.af.uchicago.edu:1094//"
 tree_name = "CollectionTree"
 
 
@@ -116,8 +117,7 @@ artists = result_hist.plot()
 # Now scale across the KubeCluster to multiple workers
 
 # %%
-# cluster.scale(50)
-cluster.scale(20)
+cluster.scale(50)
 cluster
 
 # %%
