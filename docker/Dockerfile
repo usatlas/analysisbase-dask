@@ -11,11 +11,16 @@ RUN yum install -y \
         graphviz && \
     yum clean all
 
+# Add Tini
+ENV TINI_VERSION=v0.19.0
+ADD --chown=atlas https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+
 COPY --chown=atlas docker/requirements.txt /docker/
 COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
+COPY --chown=atlas /docker/entrypoint.sh /entrypoint.sh
 COPY --chown=atlas /docker/cmd.sh /cmd.sh
 
 RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi' >> /release_setup.sh && \
@@ -33,7 +38,10 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     python -m pip list && \
     root --version
 
-RUN chmod +x /release_setup.sh
+RUN chmod +x /tini && \
+    chmod +x /entrypoint.sh && \
+    chmod +x /cmd.sh && \
+    chmod +x /release_setup.sh
 
 # Need to use an additonal directory beyond /usr/AnalysisBase to install
 # given how ATLAS CMake works.
@@ -75,5 +83,7 @@ RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_se
 
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
+
+ENTRYPOINT ["/tini", "-g", "--", "/entrypoint.sh"]
 
 CMD [ "/cmd.sh" ]
