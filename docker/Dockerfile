@@ -20,8 +20,8 @@ COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
-COPY --chown=atlas /docker/cmd.sh /cmd.sh
 COPY --chown=atlas /docker/entrypoint.sh /entrypoint.sh
+COPY --chown=atlas /docker/cmd.sh /cmd.sh
 
 RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi' >> /release_setup.sh && \
     bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.5/cvmfs-venv.sh) /venv && \
