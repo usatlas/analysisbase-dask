@@ -24,7 +24,7 @@ spec = make_cluster_spec(
 cluster = KubeCluster(custom_cluster_spec=spec)
 
 cluster.adapt(minimum=1, maximum=50)  # This doesn't seem to work as expected
-print(f"Dashboard: {cluster.dashboard_link}")
+print(f"Dashboard: {cluster.dashboard_link}")  # Dashboard link won't open (404s)
 
 # %%
 cluster
