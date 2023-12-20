@@ -56,14 +56,14 @@ def filter_name(name):
 
 
 # %%
-xc = "root://xcache.af.uchicago.edu:1094//"
-tree_name = "CollectionTree"
-
-
-def get_data_dict(n=10):
+def get_data_dict(
+    n=10,
+    read_file="mc.txt",
+    tree_name="CollectionTree",
+    xc="root://xcache.af.uchicago.edu:1094//",
+):
     r = {}
-    # with open("data.txt",'r') as readfile:
-    with open("mc.txt", "r") as readfile:
+    with open(read_file, "r") as readfile:
         ls = readfile.readlines()
         _range_max = min(n, len(ls))
         print(f"Processing {_range_max} out of {len(ls)} files")
