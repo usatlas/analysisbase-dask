@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26
+ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.37
 FROM ${BASE_IMAGE} as base
 
 SHELL [ "/bin/bash", "-c" ]
@@ -7,8 +7,8 @@ USER root
 
 # needed for dasklab extension.
 RUN yum install -y \
-        nodejs \
-        graphviz && \
+    nodejs \
+    graphviz && \
     yum clean all
 
 # Add Tini
@@ -43,24 +43,29 @@ RUN chmod +x /tini && \
     chmod +x /cmd.sh && \
     chmod +x /release_setup.sh
 
+RUN git clone https://github.com/scikit-hep/uproot5.git
+WORKDIR /analysis/uproot5
+RUN pip install -e .
+WORKDIR /analysis
+
 # Need to use an additonal directory beyond /usr/AnalysisBase to install
 # given how ATLAS CMake works.
 # c.f. https://gitlab.cern.ch/gstark/pycolumnarprototype/-/issues/2
 RUN . /release_setup.sh && \
     cd /tmp && \
     git clone \
-        --recurse-submodules \
-        --branch py_el_tool_test \
+    --recurse-submodules \
+    --branch py_el_tool_test \
     https://gitlab.cern.ch/gstark/pycolumnarprototype.git && \
     cd pycolumnarprototype && \
     cmake \
-        -S src \
-        -B build && \
+    -S src \
+    -B build && \
     cmake build -LH && \
     cmake \
-        --build build \
-        --clean-first \
-        --parallel "$(nproc --ignore=1)" && \
+    --build build \
+    --clean-first \
+    --parallel "$(nproc --ignore=1)" && \
     DESTDIR=/usr/tools cmake --install build && \
     cd /tmp && \
     rm -rf pycolumnarprototype && \
