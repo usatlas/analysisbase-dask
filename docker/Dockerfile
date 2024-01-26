@@ -45,7 +45,7 @@ RUN chmod +x /tini && \
 
 RUN git clone https://github.com/scikit-hep/uproot5.git
 WORKDIR /analysis/uproot5
-RUN pip install -e .
+RUN python -m pip install -e .
 WORKDIR /analysis
 
 # Need to use an additonal directory beyond /usr/AnalysisBase to install
