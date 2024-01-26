@@ -36,17 +36,16 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
-    root --version
+    root --version && \
+    git clone https://github.com/scikit-hep/uproot5.git && \
+    cd uproot5 && \
+    python -m pip install -e . && \
+    cd ..
 
 RUN chmod +x /tini && \
     chmod +x /entrypoint.sh && \
     chmod +x /cmd.sh && \
     chmod +x /release_setup.sh
-
-RUN git clone https://github.com/scikit-hep/uproot5.git
-WORKDIR /analysis/uproot5
-RUN python -m pip install -e .
-WORKDIR /analysis
 
 # Need to use an additonal directory beyond /usr/AnalysisBase to install
 # given how ATLAS CMake works.
