@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.37
+ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26
 FROM ${BASE_IMAGE} as base
 
 SHELL [ "/bin/bash", "-c" ]
@@ -36,11 +36,7 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
-    root --version && \
-    git clone https://github.com/scikit-hep/uproot5.git && \
-    cd uproot5 && \
-    python -m pip install -e . && \
-    cd ..
+    root --version 
 
 RUN chmod +x /tini && \
     chmod +x /entrypoint.sh && \
