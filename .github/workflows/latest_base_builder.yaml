@@ -1,10 +1,8 @@
-name: Build AnalysisBase base images
+name: Build AnalysisBase base LATEST image
 on:
   push:
     branches:
-      - "*"
-    tags:
-      - "v*.*.*"
+      - "main"
 
 jobs:
   docker:
@@ -23,10 +21,7 @@ jobs:
             hub.opensciencegrid.org/usatlas/analysis-dask-base
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=semver,pattern={{version}}
-            type=sha
+            type=raw,value=latest
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.0.0
