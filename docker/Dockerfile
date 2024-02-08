@@ -16,7 +16,7 @@ ENV TINI_VERSION=v0.19.0
 ADD --chown=atlas https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 COPY --chown=atlas docker/requirements.txt /docker/
-COPY --chown=atlas docker/requirements.lock /docker/
+# COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
@@ -32,7 +32,7 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     --upgrade \
     --no-deps \
     --require-hashes \
-    --requirement /docker/requirements.lock && \
+    --requirement /docker/requirements.txt && \
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
