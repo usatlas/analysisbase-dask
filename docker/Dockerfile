@@ -29,8 +29,6 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
     python -m pip --no-cache-dir install \
     --upgrade \
-    --no-deps \
-    --require-hashes \
     --requirement /docker/requirements.txt && \
     chown -R atlas /venv && \
     python --version --version && \
