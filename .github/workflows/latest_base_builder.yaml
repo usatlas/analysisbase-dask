@@ -70,4 +70,4 @@ jobs:
           token: ${{ secrets.GITOPS_REBUILD_TRIGGER }}
           repository: usatlas/analysisbase-dask-uc
           event-type: gitops-analysis-base-trigger
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"ref": "${{ github.ref_name }}", "sha": "${{ github.sha }}"}'
