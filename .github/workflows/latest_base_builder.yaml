@@ -1,3 +1,5 @@
+# push to main builds the latest image
+
 name: Build AnalysisBase base LATEST image
 on:
   push:
