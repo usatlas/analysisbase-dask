@@ -1,3 +1,6 @@
+git+https://github.com/CoffeaTeam/coffea@52950d10eeb43fc912807dfea9955f8d80c85c39
+awkward<2.4.5
+
 uproot==5.2.0
 dask[distributed]==2023.12.0
 dask-awkward==2023.12.2
