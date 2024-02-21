@@ -2,17 +2,17 @@
 setuptools==69.0.3
 # dask
 dask[distributed]==2024.1.0
-dask-awkward==2024.1.2
-fsspec-xrootd==0.2.3
+dask-awkward==2024.2.0
+fsspec-xrootd==0.2.4
 # Z->ee notebook
-coffea==2024.1.2
+coffea==2024.2.1
 zstandard==0.22.0
 mplhep==0.3.31
 vector==1.1.1
 weightedstats==0.4.1
 # jupyter
-notebook==7.0.6
-jupyterlab==4.0.11
+notebook==7.1.0
+jupyterlab==4.1.2
 urllib3<2  # See: https://github.com/urllib3/urllib3/issues/2168
 # extras
 jupytext==1.15.2
