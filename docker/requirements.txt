@@ -1,4 +1,4 @@
-uproot==5.2.0
+# uproot==5.2.0
 dask[distributed]==2023.12.0
 dask-awkward==2023.12.2
 fsspec-xrootd==0.2.3
