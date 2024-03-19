@@ -1,5 +1,5 @@
 # analysisbase-dask
-Docker image with ATLAS AnalysisBase 24.2.X, Dask, and Scikit-HEP tools
+Docker image with ATLAS AnalysisBase 24.2.X, Dask, and Scikit-HEP tools.
 
 ## Run
 
