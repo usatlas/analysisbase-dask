@@ -7,8 +7,8 @@ USER root
 
 # needed for dasklab extension.
 RUN yum install -y \
-    nodejs \
-    graphviz && \
+        nodejs \
+        graphviz && \
     yum clean all
 
 # Add Tini
@@ -16,6 +16,7 @@ ENV TINI_VERSION=v0.19.0
 ADD --chown=atlas https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 COPY --chown=atlas docker/requirements.txt /docker/
+COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
@@ -29,15 +30,13 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
     python -m pip --no-cache-dir install \
     --upgrade \
-    --requirement /docker/requirements.txt && \
+    --no-deps \
+    --require-hashes \
+    --requirement /docker/requirements.lock && \
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
-    root --version && \
-    git clone https://github.com/scikit-hep/uproot5.git && \
-    cd uproot5 && \
-    python -m pip install -e . && \
-    cd ..
+    root --version
 
 RUN chmod +x /tini && \
     chmod +x /entrypoint.sh && \
@@ -50,18 +49,18 @@ RUN chmod +x /tini && \
 RUN . /release_setup.sh && \
     cd /tmp && \
     git clone \
-    --recurse-submodules \
-    --branch py_el_tool_test \
+        --recurse-submodules \
+        --branch py_el_tool_test \
     https://gitlab.cern.ch/gstark/pycolumnarprototype.git && \
     cd pycolumnarprototype && \
     cmake \
-    -S src \
-    -B build && \
+        -S src \
+        -B build && \
     cmake build -LH && \
     cmake \
-    --build build \
-    --clean-first \
-    --parallel "$(nproc --ignore=1)" && \
+        --build build \
+        --clean-first \
+        --parallel "$(nproc --ignore=1)" && \
     DESTDIR=/usr/tools cmake --install build && \
     cd /tmp && \
     rm -rf pycolumnarprototype && \
