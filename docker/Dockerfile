@@ -23,16 +23,19 @@ WORKDIR /analysis
 COPY --chown=atlas /docker/entrypoint.sh /entrypoint.sh
 COPY --chown=atlas /docker/cmd.sh /cmd.sh
 
+# TODO: Remove manual fix once move to stable coffea release
 RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi' >> /release_setup.sh && \
     bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.5/cvmfs-venv.sh) /venv && \
     chown -R atlas /venv && \
     . /release_setup.sh && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
+    sed -i '/coffea @ /d' /docker/requirements.lock && \
     python -m pip --no-cache-dir install \
         --upgrade \
         --no-deps \
         --require-hashes \
         --requirement /docker/requirements.lock && \
+    python -m pip install 'coffea @ git+https://github.com/CoffeaTeam/coffea@52950d10eeb43fc912807dfea9955f8d80c85c39' && \
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
