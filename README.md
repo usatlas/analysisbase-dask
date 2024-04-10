@@ -1,4 +1,5 @@
 # analysisbase-dask
+
 Docker image with ATLAS AnalysisBase 24.2.X, Dask, and Scikit-HEP tools
 
 ## Run
@@ -54,10 +55,11 @@ python -m pip index versions <dependency name>
 3. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
 
 Example:
+
 ```
 dask-labextension==7.0.0
 ```
 
 4. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
 5. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
-6. Open a PR with the changes and wait for the CI to verify the build passes.
+6. Open a PR with the changes and wait for the CI to verify the build passes..
