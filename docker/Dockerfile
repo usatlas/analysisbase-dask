@@ -6,10 +6,15 @@ SHELL [ "/bin/bash", "-c" ]
 USER root
 
 # needed for dasklab extension.
-RUN yum install -y \
+# c.f. https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash && \
+    yum install -y \
         nodejs \
+        git-lfs \
         graphviz && \
-    yum clean all
+    yum clean all && \
+    git lfs install && \
+    git lfs version
 
 # Add Tini
 ENV TINI_VERSION=v0.19.0
