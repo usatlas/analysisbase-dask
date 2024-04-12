@@ -453,6 +453,10 @@ cloudpickle==3.0.0 \
 coffea==2024.3.0 \
     --hash=sha256:33abbb11506292f1e9a35bd64abfa06977d168c5db4231b2f10a59b45b8a71a6 \
     --hash=sha256:8f0b1f0e4c66cc0b8c021db488a2ec04e84f7c7771de96f5913bacc79eacdc15
+colorama==0.4.6 \
+    --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
+    --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
+    # via nbdime
 comm==0.2.2 \
     --hash=sha256:3fd7a84065306e07bea1773df6eb8282de51ba82f77c72f9c85716ab11fe980e \
     --hash=sha256:e6fb86cb70ff661ee8c9c14e7d36d6de3b4066f1441be4063df9c5009f0a64d3
@@ -875,6 +879,14 @@ fsspec-xrootd==0.2.4 \
     --hash=sha256:3d3440e0e26da491af1213c5457b062590b1d1f3c61ce768e81ce45031c8117f \
     --hash=sha256:e02cad577b3ea21e6415b7a49feef78c7489990eff08cb745449d9f992b26924
     # via coffea
+gitdb==4.0.11 \
+    --hash=sha256:81a3407ddd2ee8df444cbacea00e2d038e40150acfa3001696fe0dcf1d3adfa4 \
+    --hash=sha256:bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b
+    # via gitpython
+gitpython==3.1.43 \
+    --hash=sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c \
+    --hash=sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff
+    # via nbdime
 google-auth==2.29.0 \
     --hash=sha256:672dff332d073227550ffc7457868ac4218d6c500b155fe6cc17d2b13602c360 \
     --hash=sha256:d452ad095688cd52bae0ad6fafe027f6a6d6f560e810fec20914e17a09526415
@@ -964,6 +976,7 @@ jinja2==3.1.3 \
     #   jupyterlab
     #   jupyterlab-server
     #   nbconvert
+    #   nbdime
 json5==0.9.24 \
     --hash=sha256:0c638399421da959a20952782800e5c1a78c14e08e1dc9738fa10d8ec14d58c8 \
     --hash=sha256:4ca101fd5c7cb47960c055ef8f4d0e31e15a7c6c48c3b6f1473fc83b6c462a13
@@ -1014,11 +1027,18 @@ jupyter-server==2.13.0 \
     --hash=sha256:c80bfb049ea20053c3d9641c2add4848b38073bf79f1729cea1faed32fc1c78e
     # via
     #   jupyter-lsp
+    #   jupyter-server-mathjax
     #   jupyter-server-proxy
     #   jupyterlab
+    #   jupyterlab-git
     #   jupyterlab-server
+    #   nbdime
     #   notebook
     #   notebook-shim
+jupyter-server-mathjax==0.2.6 \
+    --hash=sha256:416389dde2010df46d5fbbb7adb087a5607111070af65a1445391040f2babb5e \
+    --hash=sha256:bb1e6b6dc0686c1fe386a22b5886163db548893a99c2810c36399e9c4ca23943
+    # via nbdime
 jupyter-server-proxy==4.1.2 \
     --hash=sha256:6fd8ce88a0100e637b48f1d3aa32f09672bcb2813dc057d70567f0a40b1237f5 \
     --hash=sha256:f97bd0c6bbba4931d8ae22bef872703c9785fc1258c4bc196955e2bd034f3eaa
@@ -1033,6 +1053,9 @@ jupyterlab==4.1.5 \
     # via
     #   dask-labextension
     #   notebook
+jupyterlab-git==0.50.0 \
+    --hash=sha256:00e399c2f828acc86ef58f2098c4d9bb2c0b52d37791dd5a56773a133e0c3da5 \
+    --hash=sha256:09859546d390134ebb918a965c2c3fe2605feafe327cf61615be7dd90b5bdfbb
 jupyterlab-pygments==0.3.0 \
     --hash=sha256:721aca4d9029252b11cfa9d185e5b5af4d54772bb8072f9b7036f4170054d35d \
     --hash=sha256:841a89020971da1d8693f1a99997aefc5dc424bb1b251fd6322462a1b8842780
@@ -1528,14 +1551,20 @@ nbconvert==7.16.3 \
     --hash=sha256:a6733b78ce3d47c3f85e504998495b07e6ea9cf9bf6ec1c98dda63ec6ad19142 \
     --hash=sha256:ddeff14beeeedf3dd0bc506623e41e4507e551736de59df69a91f86700292b3b
     # via jupyter-server
+nbdime==4.0.1 \
+    --hash=sha256:82538e2b52e0834e9c07607e2dea27aceaaf7e8cf2269a4607c67ea9aa625404 \
+    --hash=sha256:f1a760c0b00c1ba9b4945c16ce92577f393fb51d184f351b7685ba6e8502098e
+    # via jupyterlab-git
 nbformat==5.10.3 \
     --hash=sha256:60ed5e910ef7c6264b87d644f276b1b49e24011930deef54605188ddeb211685 \
     --hash=sha256:d9476ca28676799af85385f409b49d95e199951477a159a576ef2a675151e5e8
     # via
     #   jupyter-server
+    #   jupyterlab-git
     #   jupytext
     #   nbclient
     #   nbconvert
+    #   nbdime
 nest-asyncio==1.6.0 \
     --hash=sha256:6f172d5449aca15afd6c646851f4e31e02c598d553a667e38cafa997cfec55fe \
     --hash=sha256:87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c
@@ -1652,6 +1681,7 @@ packaging==24.0 \
     #   ipykernel
     #   jupyter-server
     #   jupyterlab
+    #   jupyterlab-git
     #   jupyterlab-server
     #   jupytext
     #   matplotlib
@@ -1707,7 +1737,9 @@ partd==1.4.1 \
 pexpect==4.9.0 \
     --hash=sha256:7236d1e080e4936be2dc3e326cec0af72acf9212a7e1d060210e70a47e253523 \
     --hash=sha256:ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f
-    # via ipython
+    # via
+    #   ipython
+    #   jupyterlab-git
 pillow==10.2.0 \
     --hash=sha256:0304004f8067386b477d20a518b50f3fa658a28d44e4116970abfcd94fac34a8 \
     --hash=sha256:0689b5a8c5288bc0504d9fcee48f61a6a586b9b98514d7d29b840143d6734f39 \
@@ -1965,6 +1997,7 @@ pygments==2.17.2 \
     # via
     #   ipython
     #   nbconvert
+    #   nbdime
     #   rich
 pykube-ng==23.6.0 \
     --hash=sha256:46de8e17ed87c1a1014667d60e7d94a1f3fa2b8037b41e67d32c28b5869af35d \
@@ -2188,6 +2221,7 @@ requests==2.31.0 \
     # via
     #   jupyterlab-server
     #   kubernetes
+    #   nbdime
     #   pykube-ng
     #   requests-oauthlib
 requests-oauthlib==2.0.0 \
@@ -2368,6 +2402,10 @@ six==1.16.0 \
     #   kubernetes-asyncio
     #   python-dateutil
     #   rfc3339-validator
+smmap==5.0.1 \
+    --hash=sha256:dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62 \
+    --hash=sha256:e6d8668fa5f93e706934a62d7b4db19c8d9eb8cf2adbb75ef1b675aa332b69da
+    # via gitdb
 sniffio==1.3.1 \
     --hash=sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2 \
     --hash=sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc
@@ -2437,6 +2475,7 @@ tornado==6.4 \
     #   jupyter-server
     #   jupyter-server-proxy
     #   jupyterlab
+    #   nbdime
     #   notebook
     #   terminado
 tqdm==4.66.2 \
@@ -2457,6 +2496,7 @@ traitlets==5.14.2 \
     #   jupyter-server
     #   jupyter-server-proxy
     #   jupyterlab
+    #   jupyterlab-git
     #   matplotlib-inline
     #   nbclient
     #   nbconvert
