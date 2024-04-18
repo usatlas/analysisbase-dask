@@ -11,11 +11,11 @@ When [configuring](https://af.uchicago.edu/jupyterlab/configure) the Jupyter Lab
 
 ### Locally
 
-```
+``` bash
 docker pull sslhep/analysis-dask-base:latest
 ```
 
-```
+``` bash
 docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis sslhep/analysis-dask-base:latest
 ```
 
@@ -23,7 +23,7 @@ docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis sslhep/analysis-
 
 #### Without using the JupyterLab environment
 
-```
+``` bash
 docker run --rm -ti --publish 8888:8888 --volume $PWD:/analysis sslhep/analysis-dask-base:latest /bin/bash
 ```
 
@@ -36,7 +36,7 @@ Lists of all AnalysisBase releases that could be used as base images are provide
 
 More easily though, you can just use [`crane`](https://github.com/google/go-containerregistry/blob/v0.14.0/cmd/crane/) to get a listing of all images from the command line
 
-```
+``` bash
 crane ls gitlab-registry.cern.ch/atlas/athena/analysisbase
 ```
 
@@ -48,7 +48,7 @@ To update the dependencies and the lock file:
 1. Make a new branch.
 2. Figure out what the version of the dependency you want to install is with
 
-```
+``` bash
 python -m pip index versions <dependency name>
 ```
 
