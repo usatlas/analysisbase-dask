@@ -46,20 +46,20 @@ All the Python dependencies installed into the default Python virtual environmen
 To update the dependencies and the lock file:
 
 1. Make a new branch.
-2. Figure out what the version of the dependency you want to install is with
+1. Figure out what the version of the dependency you want to install is with
 
-``` bash
-python -m pip index versions <dependency name>
-```
+    ``` bash
+    python -m pip index versions <dependency name>
+    ```
 
-3. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
+1. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
 
-Example:
+    Example:
 
-```
-dask-labextension==7.0.0
-```
+    ```
+    dask-labextension==7.0.0
+    ```
 
-4. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
-5. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
-6. Open a PR with the changes and wait for the CI to verify the build passes...
+1. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
+1. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
+1. Open a PR with the changes and wait for the CI to verify the build passes...
