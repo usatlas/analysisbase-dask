@@ -1,7 +1,7 @@
 uproot==5.3.2
 dask[distributed]==2024.4.1
 dask-awkward==2024.3.0
-fsspec-xrootd==0.2.4
+fsspec-xrootd==0.3.0
 # Z->ee notebook
 coffea==2024.4.1
 zstandard==0.22.0
