@@ -7,7 +7,6 @@ USER root
 
 # needed for dasklab extension.
 # c.f. https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
-# Install https://github.com/astral-sh/uv for users editing environment later
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash && \
     yum install -y \
         nodejs \
@@ -15,8 +14,7 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.r
         graphviz && \
     yum clean all && \
     git lfs install && \
-    git lfs version && \
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    git lfs version
 
 # Add Tini
 ENV TINI_VERSION=v0.19.0
@@ -84,9 +82,11 @@ RUN echo -e "\n# Ensure that the virtual environment is always at the HEAD of PY
 USER atlas
 
 # Setup environment for default user 'atlas'
+# Install https://github.com/astral-sh/uv for users editing environment later
 RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_setup.sh\n' >> /home/atlas/.bashrc && \
     . /release_setup.sh && \
-    mkdir -p $(jupyter --config)
+    mkdir -p $(jupyter --config) && \
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
