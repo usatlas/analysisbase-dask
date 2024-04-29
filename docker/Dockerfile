@@ -82,9 +82,11 @@ RUN echo -e "\n# Ensure that the virtual environment is always at the HEAD of PY
 USER atlas
 
 # Setup environment for default user 'atlas'
+# Install https://github.com/astral-sh/uv for users editing environment later
 RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_setup.sh\n' >> /home/atlas/.bashrc && \
     . /release_setup.sh && \
-    mkdir -p $(jupyter --config)
+    mkdir -p $(jupyter --config) && \
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
