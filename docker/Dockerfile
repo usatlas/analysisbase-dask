@@ -7,6 +7,7 @@ USER root
 
 # needed for dasklab extension.
 # c.f. https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
+# Install https://github.com/astral-sh/uv for users editing environment later
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash && \
     yum install -y \
         nodejs \
@@ -14,7 +15,8 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.r
         graphviz && \
     yum clean all && \
     git lfs install && \
-    git lfs version
+    git lfs version && \
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Add Tini
 ENV TINI_VERSION=v0.19.0
