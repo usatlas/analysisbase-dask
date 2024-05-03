@@ -46,13 +46,13 @@ All the Python dependencies installed into the default Python virtual environmen
 To update the dependencies and the lock file:
 
 1. Make a new branch.
-1. Figure out what the version of the dependency you want to install is with
+2. Figure out what the version of the dependency you want to install is with
 
     ``` bash
     python -m pip index versions <dependency name>
     ```
 
-1. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
+3. Add this dependency and version to the `docker/requirements.txt` with the version pinned.
 
     Example:
 
@@ -60,6 +60,15 @@ To update the dependencies and the lock file:
     dask-labextension==7.0.0
     ```
 
-1. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
-1. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
-1. Open a PR with the changes and wait for the CI to verify the build passes.....
+4. Rebuild the lock file with `make lock` (this also verifies that the environment can be installed).
+5. Add and commit the updated `docker/requirements.txt` and `docker/requirements.lock`.
+6. Open a PR with the changes and wait for the CI to verify the build passes.
+
+## Triggering image rebuilds in CI
+
+To trigger an image rebuild use the workflow dispatch feature of the [`base_builder` workflow](https://github.com/usatlas/analysisbase-dask/actions/workflows/base_builder.yaml).
+
+1. Visit the [`base_builder` workflow GitHub Actions page](https://github.com/usatlas/analysisbase-dask/actions/workflows/base_builder.yaml).
+2. Select the "Run workflow" button on the top right side of the workflow runs table.
+3. Select which branch you would like to build from in the "Use workflow from" drop down menu.
+4. Click the "Run workflow" button.
