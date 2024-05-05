@@ -2660,9 +2660,9 @@ uhi==0.4.0 \
     # via
     #   histoprint
     #   mplhep
-uproot==5.3.2 \
-    --hash=sha256:3a627eb7a61ed7c074f32985d255cc86269c159ac3b4378cb42186d1c377e95f \
-    --hash=sha256:be07a6e852bc63636a7835106a032f191ec698d304ebc7dcb291ee407fb68b2d
+uproot==5.3.4 \
+    --hash=sha256:3cd15263110a06bcce06c69d84fb80c84566a774fc5d6b3006984d1fdcd4e8c0 \
+    --hash=sha256:caf938040dfc2a374a7774ada43b312a6e468be6e7bca39c7aa5aa4c8b8ca7ff
     # via coffea
 uri-template==1.3.0 \
     --hash=sha256:0e00f8eb65e18c7de20d595a14336e9f337ead580c70934141624b6d1ffdacc7 \
