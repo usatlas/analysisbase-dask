@@ -27,3 +27,4 @@ jupyter-server-proxy==4.1.2
 servicex==3.0.0a17
 func-adl-servicex==2.2
 func_adl_servicex_xaodr22==2.0.0.22.2.107a12
+tenacity==8.3.0
