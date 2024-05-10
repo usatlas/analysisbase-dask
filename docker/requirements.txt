@@ -1,3 +1,4 @@
+uproot==5.3.8rc1
 # Do not upgrade Dask until move off KubeCluster
 # Requires https://github.com/usatlas/analysisbase-dask-uc/issues/9
 dask[distributed]==2024.4.2
