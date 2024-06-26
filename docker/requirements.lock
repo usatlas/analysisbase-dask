@@ -482,6 +482,7 @@ cloudpickle==3.0.0 \
 coffea==2024.4.1 \
     --hash=sha256:9007db5def2e5cdcec7de9debeb32a165bd856e9fadb5b28dc7f15895024cbe1 \
     --hash=sha256:eafb6ffdb32ea2c35eedeb4db26f7c0798914b32f2033dc2cab4b21eb9590fc8
+    # via -r requirements.txt
 colorama==0.4.6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
     --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
@@ -729,6 +730,7 @@ dask==2024.4.2 \
     --hash=sha256:3d7a516468d96e72581b84c7bb00172366f30d24c689ea4e9bd1334ab6d98f8a \
     --hash=sha256:56fbe92472e3b323ab7beaf2dc8437d48066ac21aa9c2c17ac40d2b6f7b4c414
     # via
+    #   -r requirements.txt
     #   coffea
     #   dask-awkward
     #   dask-histogram
@@ -737,7 +739,9 @@ dask==2024.4.2 \
 dask-awkward==2024.3.0 \
     --hash=sha256:59e3b212bf1ccdd9e2bbf491a8c5e90b99d72f3681e146c80c5b3955908ffb3d \
     --hash=sha256:66de31a731c4158ef00c5cec96616ec49a354309115e8cd1f05ed2351520d7d2
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
 dask-histogram==2024.3.0 \
     --hash=sha256:480502f570a62d151c80afd6e5a8526f0ecb50c72b735b8913d258892e7ed573 \
     --hash=sha256:834d4d25f5e2c417f5e792fafaa55484c20c9f3812d175125de7ac34f994ef7b
@@ -745,9 +749,11 @@ dask-histogram==2024.3.0 \
 dask-kubernetes==2024.4.2 \
     --hash=sha256:2b848e07bd05da4e63a0312e13d8f4d43c9309aad175aced873dffc299348e74 \
     --hash=sha256:2b88cb401bc2e59ce92a41dafe2d1247e990b83cfcf50ac848f58482abcef3b6
+    # via -r requirements.txt
 dask-labextension==7.0.0 \
     --hash=sha256:34fd1ee80a7259dc292a789cc82e4563d7cd1f5a26eb2ee8b434517482f82027 \
     --hash=sha256:45a60bd0ad31c5e425986b7e40a5aa242aa582ea868025ac2b82d0aa16ffcb8a
+    # via -r requirements.txt
 debugpy==1.8.1 \
     --hash=sha256:016a9fcfc2c6b57f939673c874310d8581d51a0fe0858e7fac4e240c5eb743cb \
     --hash=sha256:0de56aba8249c28a300bdb0672a9b94785074eb82eb672db66c8144fff673146 \
@@ -942,7 +948,9 @@ fsspec==2024.3.1 \
 fsspec-xrootd==0.3.0 \
     --hash=sha256:3a146f9c0784d21b5b269981cd394d3d521e273d50dbd71b8315d70bd6078ddd \
     --hash=sha256:bef5ca97c6095cd807a6979a070ff6b56b1145133768a420e078f6b2883140fd
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
 func-adl==3.3.1 \
     --hash=sha256:83b5f16202209a87cf1d552be28f1ac537557040089892a263c50f845eb04318 \
     --hash=sha256:e6925037f356651049f034ccaba8dbf158f07133ff12fc164e58f7b3e2a9890c
@@ -952,9 +960,11 @@ func-adl==3.3.1 \
 func-adl-servicex==2.2 \
     --hash=sha256:225a60ddb4d7b2fd455c8e0221834a7d42b30e8406df71f0b738614d7a5f07c9 \
     --hash=sha256:aa825a95bd7d9b83d1bf15a200d1ad40d434fbd4a83b732fcfe4ef9e6e4e8cdb
+    # via -r requirements.txt
 func-adl-servicex-xaodr22==2.0.0.22.2.107a12 \
     --hash=sha256:3057c5207e6aa5b05ba5208dd2da89e748f179d8ec1c187087ea6e37d45dc100 \
     --hash=sha256:fe93054908e5e1616cf3e0c8cee1b79c8fde60c4d4c3544313a4f0b0c274983b
+    # via -r requirements.txt
 gitdb==4.0.11 \
     --hash=sha256:81a3407ddd2ee8df444cbacea00e2d038e40150acfa3001696fe0dcf1d3adfa4 \
     --hash=sha256:bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b
@@ -972,6 +982,7 @@ google-auth==2.29.0 \
 graphviz==0.20.3 \
     --hash=sha256:09d6bc81e6a9fa392e7ba52135a9d49f1ed62526f96499325930e87ca1b5925d \
     --hash=sha256:81f848f2904515d8cd359cc611faba817598d2feaac4027b266aa3eda7b3dde5
+    # via -r requirements.txt
 h11==0.14.0 \
     --hash=sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d \
     --hash=sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761
@@ -1042,6 +1053,7 @@ ipython==8.18.1 \
 ipywidgets==8.1.2 \
     --hash=sha256:bbe43850d79fb5e906b14801d6c01402857996864d1e5b6fa62dd2ee35559f60 \
     --hash=sha256:d0b9b41e49bae926a866e613a39b0f0097745d2b9f1f3dd406641b4a57ec42c9
+    # via -r requirements.txt
 iso8601==2.1.0 \
     --hash=sha256:6b1d3829ee8921c4301998c909f7829fa9ed3cbdac0d3b16af2d743aed1ba8df \
     --hash=sha256:aac4145c4dcb66ad8b648a02830f5e2ff6c24af20f4f482689be402db2429242
@@ -1130,7 +1142,9 @@ jupyter-server-mathjax==0.2.6 \
 jupyter-server-proxy==4.1.2 \
     --hash=sha256:6fd8ce88a0100e637b48f1d3aa32f09672bcb2813dc057d70567f0a40b1237f5 \
     --hash=sha256:f97bd0c6bbba4931d8ae22bef872703c9785fc1258c4bc196955e2bd034f3eaa
-    # via dask-labextension
+    # via
+    #   -r requirements.txt
+    #   dask-labextension
 jupyter-server-terminals==0.5.3 \
     --hash=sha256:41ee0d7dc0ebf2809c668e0fc726dfaf258fcd3e769568996ca731b6194ae9aa \
     --hash=sha256:5ae0295167220e9ace0edcfdb212afd2b01ee8d179fe6f23c899590e9b8a5269
@@ -1139,11 +1153,13 @@ jupyterlab==4.1.5 \
     --hash=sha256:3bc843382a25e1ab7bc31d9e39295a9f0463626692b7995597709c0ab236ab2c \
     --hash=sha256:c9ad75290cb10bfaff3624bf3fbb852319b4cce4c456613f8ebbaa98d03524db
     # via
+    #   -r requirements.txt
     #   dask-labextension
     #   notebook
 jupyterlab-git==0.50.0 \
     --hash=sha256:00e399c2f828acc86ef58f2098c4d9bb2c0b52d37791dd5a56773a133e0c3da5 \
     --hash=sha256:09859546d390134ebb918a965c2c3fe2605feafe327cf61615be7dd90b5bdfbb
+    # via -r requirements.txt
 jupyterlab-pygments==0.3.0 \
     --hash=sha256:721aca4d9029252b11cfa9d185e5b5af4d54772bb8072f9b7036f4170054d35d \
     --hash=sha256:841a89020971da1d8693f1a99997aefc5dc424bb1b251fd6322462a1b8842780
@@ -1161,6 +1177,7 @@ jupyterlab-widgets==3.0.10 \
 jupytext==1.16.1 \
     --hash=sha256:68c7b68685e870e80e60fda8286fbd6269e9c74dc1df4316df6fe46eabc94c99 \
     --hash=sha256:796ec4f68ada663569e5d38d4ef03738a01284bfe21c943c485bc36433898bd0
+    # via -r requirements.txt
 kiwisolver==1.4.5 \
     --hash=sha256:00bd361b903dc4bbf4eb165f24d1acbee754fce22ded24c3d56eec268658a5cf \
     --hash=sha256:040c1aebeda72197ef477a906782b5ab0d387642e93bda547336b8957c61022e \
@@ -1485,10 +1502,12 @@ mistune==3.0.2 \
     --hash=sha256:71481854c30fdbc938963d3605b72501f5c10a9320ecd412c121c163a1c7d205 \
     --hash=sha256:fc7f93ded930c92394ef2cb6f04a8aabab4117a91449e72dcc8dfa646a508be8
     # via nbconvert
-mplhep==0.3.48 \
-    --hash=sha256:2f9d5863801e57fb3b2c93f275aec512e951a90a37b6b9712b862b4ee09d308d \
-    --hash=sha256:ac02226934d27f5c4835d69d8c7937d8a3a95b848c83c8ddc05b7ccf5a222e2b
-    # via coffea
+mplhep==0.3.50 \
+    --hash=sha256:9f632fc242979426a7810b6020e8ad24bb64e04c7ff7728302bd3f7e86184e4f \
+    --hash=sha256:c4775975f4e229b0c6bbaa182224ddf0ffe7a47da4523cfbb3c03df820493740
+    # via
+    #   -r requirements.txt
+    #   coffea
 mplhep-data==0.0.3 \
     --hash=sha256:a1eba7727fab31902e6fcd113c8f4b12ff3fb0666781e7514f8b79093cdc1c65 \
     --hash=sha256:b54d257f3f53c93a442cda7a6681ce267277e09173c0b41fd78820f78321772f
@@ -1674,6 +1693,7 @@ nest-asyncio==1.6.0 \
 notebook==7.1.2 \
     --hash=sha256:efc2c80043909e0faa17fce9e9b37c059c03af0ec99a4d4db84cb21d9d2e936a \
     --hash=sha256:fc6c24b9aef18d0cd57157c9c47e95833b9b0bdc599652639acf0bdb61dc7d5f
+    # via -r requirements.txt
 notebook-shim==0.2.4 \
     --hash=sha256:411a5be4e9dc882a074ccbcae671eda64cceb068767e9a3419096986560e1cef \
     --hash=sha256:b4b2cfa1b65d98307ca24361f5b30fe785b53c3fd07b7a47e89acb5e6ac638cb
@@ -1822,6 +1842,7 @@ pandas==2.2.1 \
     --hash=sha256:f821213d48f4ab353d20ebc24e4faf94ba40d76680642fb7ce2ea31a3ad94f9b \
     --hash=sha256:f9d3558d263073ed95e46f4650becff0c5e1ffe0fc3a015de3c79283dfbdb3df
     # via
+    #   -r requirements.txt
     #   bokeh
     #   coffea
 pandocfilters==1.5.1 \
@@ -2497,7 +2518,9 @@ send2trash==1.8.3 \
 servicex==3.0.0a17 \
     --hash=sha256:196466544fd43b91f981c03763620c57c1bfbd4d671f8af38dccf5d824b178e4 \
     --hash=sha256:97e92b154f92743b74792434d1ad3e0e0bfa407d8af554e8ac780063bb4164c2
-    # via func-adl-servicex
+    # via
+    #   -r requirements.txt
+    #   func-adl-servicex
 setuptools==69.5.1 \
     --hash=sha256:6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987 \
     --hash=sha256:c636ac361bc47580504644275c9ad802c50415c7522212252c033bd15f301f32
@@ -2549,6 +2572,7 @@ tblib==3.0.0 \
 tenacity==8.3.0 \
     --hash=sha256:3649f6443dbc0d9b01b9d8020a9c4ec7a1ff5f6f3c6c8a036ef371f573fe9185 \
     --hash=sha256:953d4e6ad24357bceffbc9707bc74349aca9d245f68eb65419cf0c249a1949a2
+    # via -r requirements.txt
 terminado==0.18.1 \
     --hash=sha256:a4468e1b37bb318f8a86514f65814e1afc977cf29b3992a4500d9dd305dcceb0 \
     --hash=sha256:de09f2c4b85de4765f7714688fff57d3e75bad1f909b589fde880460c753fd2e
@@ -2666,7 +2690,9 @@ uhi==0.4.0 \
 uproot==5.3.8rc1 \
     --hash=sha256:92fec5b86517a1efc46eecef0bd9d62053edf8058186e7a65c6ead7d05de0215 \
     --hash=sha256:ed508d4644c6adbb49bd590e6baffaf46c71384184b57eb9a5d5087e5242c1bf
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
 uri-template==1.3.0 \
     --hash=sha256:0e00f8eb65e18c7de20d595a14336e9f337ead580c70934141624b6d1ffdacc7 \
     --hash=sha256:a44a133ea12d44a0c0f06d7d42a52d71282e77e2f937d8abd5655b8d56fc1363
@@ -2675,6 +2701,7 @@ urllib3==1.26.18 \
     --hash=sha256:34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07 \
     --hash=sha256:f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0
     # via
+    #   -r requirements.txt
     #   distributed
     #   kubernetes
     #   kubernetes-asyncio
@@ -2684,6 +2711,7 @@ urllib3==1.26.18 \
 vector==1.4.0 \
     --hash=sha256:1083f08510678330118113f99c03e85088ddc7e3a69b296da0e8d0d0978a573d \
     --hash=sha256:a7d0e65eb929015b11816f720380c5c9d59a92b25833d3035d65d5296e97db65
+    # via -r requirements.txt
 wcwidth==0.2.13 \
     --hash=sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859 \
     --hash=sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5
@@ -2708,6 +2736,7 @@ weightedstats==0.4.1 \
     --hash=sha256:5633991d01864dca581816da3070eed95fb3671020937a8dbad7afab4a38ef0c \
     --hash=sha256:6ead0c27df10b0598d7e3a1c2bc201b925f5ac47099df0dafccce91932a5d155 \
     --hash=sha256:beb488a3f46aa06dbc8491578ec7e408847ca682edc7ec90846f6df9e36cab50
+    # via -r requirements.txt
 widgetsnbextension==4.0.10 \
     --hash=sha256:64196c5ff3b9a9183a8e699a4227fb0b7002f252c814098e66c4d1cd0644688f \
     --hash=sha256:d37c3724ec32d8c48400a435ecfa7d3e259995201fbefa37163124a9fcb393cc
@@ -2869,3 +2898,4 @@ zstandard==0.22.0 \
     --hash=sha256:f1a4b358947a65b94e2501ce3e078bbc929b039ede4679ddb0460829b12f7375 \
     --hash=sha256:f9b2cde1cd1b2a10246dbc143ba49d942d14fb3d2b4bccf4618d475c65464912 \
     --hash=sha256:fe3390c538f12437b859d815040763abc728955a52ca6ff9c5d4ac707c4ad98e
+    # via -r requirements.txt

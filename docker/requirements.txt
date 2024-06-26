@@ -7,7 +7,7 @@ fsspec-xrootd==0.3.0
 # Z->ee notebook
 coffea==2024.4.1
 zstandard==0.22.0
-mplhep==0.3.48
+mplhep==0.3.50
 vector==1.4.0
 weightedstats==0.4.1
 # jupyter
