@@ -11,7 +11,7 @@ lock:
 		--user 1000:1000 \
 		--volume $(shell pwd)/docker:/workdir \
 		tmp/analysisbase:rel25-lockfile-builder \
-		bash -c 'bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.5/cvmfs-venv.sh) && \
+		bash -c 'bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.7/cvmfs-venv.sh) && \
 			. venv/bin/activate && \
 			python -m pip --no-cache-dir install --upgrade uv && \
 			uv pip compile --generate-hashes --output-file=requirements.lock requirements.txt && \
