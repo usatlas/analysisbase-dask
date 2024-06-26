@@ -29,7 +29,7 @@ COPY --chown=atlas /docker/entrypoint.sh /entrypoint.sh
 COPY --chown=atlas /docker/cmd.sh /cmd.sh
 
 RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi' >> /release_setup.sh && \
-    bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.5/cvmfs-venv.sh) /venv && \
+    bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.7/cvmfs-venv.sh) /venv && \
     chown -R atlas /venv && \
     . /release_setup.sh && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
