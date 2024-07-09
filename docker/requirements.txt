@@ -18,6 +18,7 @@ urllib3<2  # See: https://github.com/urllib3/urllib3/issues/2168
 jupytext==1.16.1
 pandas==2.2.1
 jupyterlab-git==0.50.0
+jupyterlab-deck==0.2.0
 # Dask cluster
 dask-labextension==7.0.0
 dask-kubernetes==2024.4.2
