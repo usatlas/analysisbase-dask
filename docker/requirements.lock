@@ -1155,7 +1155,17 @@ jupyterlab==4.1.5 \
     # via
     #   -r requirements.txt
     #   dask-labextension
+    #   jupyterlab-deck
+    #   jupyterlab-fonts
     #   notebook
+jupyterlab-deck==0.2.0 \
+    --hash=sha256:ee70e0d2ff199260b179a77533a3b9cd5fcd858782c07f50311fbba68d6f903b \
+    --hash=sha256:f91eb4164538082718a3c7d4a605bf114eb7e034a199047a4098c18e0e8a25bc
+    # via -r requirements.txt
+jupyterlab-fonts==3.0.0 \
+    --hash=sha256:26045561e710edd35559f424836cbb8bfcdb39c9a05b1e555bfeb3cc46408d15 \
+    --hash=sha256:9f98258fb80c5fe86e4996e7cbf1089c0837ffe19c49afd5f929f0762dfaf961
+    # via jupyterlab-deck
 jupyterlab-git==0.50.0 \
     --hash=sha256:00e399c2f828acc86ef58f2098c4d9bb2c0b52d37791dd5a56773a133e0c3da5 \
     --hash=sha256:09859546d390134ebb918a965c2c3fe2605feafe327cf61615be7dd90b5bdfbb
