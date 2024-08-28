@@ -2783,9 +2783,9 @@ uhi==0.4.0 \
     # via
     #   histoprint
     #   mplhep
-uproot==5.3.11 \
-    --hash=sha256:24729b83797cdf5ac30d9851d7549a94d833f63d7906dfbf055096de514cb215 \
-    --hash=sha256:30a93eaa5c5d8fa9c51b628627756168da0d9b7b7bb9c7a5529f7f5556902ed0
+uproot==5.3.12 \
+    --hash=sha256:29000deb55f05461e7bcde9664d75011c26eb9a14d90b35edf2c5c3637d9abbc \
+    --hash=sha256:f3eb06f632891264db8d33f9ea61fcaf3a682ccc0f5b0ec2d0b9aec6349b34e1
     # via
     #   -r requirements.txt
     #   coffea

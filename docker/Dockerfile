@@ -38,8 +38,6 @@ RUN echo -e '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\
     --no-deps \
     --require-hashes \
     --requirement /docker/requirements.lock && \
-    python -m pip uninstall --yes uproot && \
-    python -m pip --no-cache-dir install --upgrade "uproot @ git+https://github.com/scikit-hep/uproot5.git@adf831ebe2824eea669f7cb6e1046adbb3d17d93" && \
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
