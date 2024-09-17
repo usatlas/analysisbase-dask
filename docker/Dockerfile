@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2
+ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.27
 FROM ${BASE_IMAGE} as base
 
 SHELL [ "/bin/bash", "-c" ]

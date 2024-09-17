@@ -1,8 +1,8 @@
 lock:
-	docker pull gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2
+	docker pull gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.27
 	docker build \
 		--file docker/Dockerfile.lockfile-builder \
-		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2 \
+		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.27 \
 		--tag tmp/analysisbase:rel25-lockfile-builder \
 		docker
 	docker run \
@@ -19,10 +19,10 @@ lock:
 			rm -r venv'
 
 build:
-	docker pull gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2
+	docker pull gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.27
 	docker build \
 		--file docker/Dockerfile \
-		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2 \
+		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.27 \
 		--tag sslhep/analysis-dask-base:debug \
 		.
 
