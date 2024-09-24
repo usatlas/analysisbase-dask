@@ -2721,9 +2721,9 @@ send2trash==1.8.3 \
     --hash=sha256:0c31227e0bd08961c7665474a3d1ef7193929fedda4233843689baa056be46c9 \
     --hash=sha256:b18e7a3966d99871aefeb00cfbcfdced55ce4871194810fc71f4aa484b953abf
     # via jupyter-server
-servicex==3.0.0b1 \
-    --hash=sha256:580b96de3fdb7724b760e50e97bbbc267fb13c5e7f5daf721177033fdbb8b3fe \
-    --hash=sha256:88655982a0d399cfe9757e3812f9f8394af7a29b5fc09d102e37e9491d008025
+servicex==3.0.0 \
+    --hash=sha256:10fe7aa45ade9ba978563e20cf51f80aa149139423fd0b0766cd7e72e06e1f74 \
+    --hash=sha256:3d9c70ea43e5dabb2831564a325443ae9855ebea92dfac317ac691c928fe8da1
     # via
     #   -r requirements.txt
     #   func-adl-servicex
@@ -2775,7 +2775,9 @@ tblib==3.0.0 \
 tenacity==9.0.0 \
     --hash=sha256:807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b \
     --hash=sha256:93de0c98785b27fcf659856aa9f54bfbd399e29969b0621bc7f762bd441b4539
-    # via -r requirements.txt
+    # via
+    #   -r requirements.txt
+    #   servicex
 terminado==0.18.1 \
     --hash=sha256:a4468e1b37bb318f8a86514f65814e1afc977cf29b3992a4500d9dd305dcceb0 \
     --hash=sha256:de09f2c4b85de4765f7714688fff57d3e75bad1f909b589fde880460c753fd2e
