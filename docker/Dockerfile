@@ -58,7 +58,8 @@ USER atlas
 RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_setup.sh\n' >> /home/atlas/.bashrc && \
     . /release_setup.sh && \
     mkdir -p $(jupyter --config) && \
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    python -c 'import python_tool_handle; tool_handle = python_tool_handle.PythonToolHandle(); print(tool_handle)'
 
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
