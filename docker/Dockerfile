@@ -1,5 +1,5 @@
-ARG BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:25.2.2
-FROM ${BASE_IMAGE} as base
+ARG BASE_IMAGE=gitlab-registry.cern.ch/feickert/columnar-athena-containers:analysisbase-25.2.30-latest
+FROM ${BASE_IMAGE} AS base
 
 SHELL [ "/bin/bash", "-c" ]
 
@@ -48,34 +48,6 @@ RUN chmod +x /tini && \
     chmod +x /cmd.sh && \
     chmod +x /release_setup.sh
 
-# Need to use an additonal directory beyond /usr/AnalysisBase to install
-# given how ATLAS CMake works.
-# c.f. https://gitlab.cern.ch/gstark/pycolumnarprototype/-/issues/2
-RUN . /release_setup.sh && \
-    cd /tmp && \
-    git clone \
-        --recurse-submodules \
-        --branch py_el_tool_test \
-    https://gitlab.cern.ch/gstark/pycolumnarprototype.git && \
-    cd pycolumnarprototype && \
-    cmake \
-        -S src \
-        -B build && \
-    cmake build -LH && \
-    cmake \
-        --build build \
-        --clean-first \
-        --parallel "$(nproc --ignore=1)" && \
-    DESTDIR=/usr/tools cmake --install build && \
-    cd /tmp && \
-    rm -rf pycolumnarprototype && \
-    echo -e "\n# Set up the PyColumnarPrototype tool:" >> /release_setup.sh && \
-    echo -e ". $(find /usr/tools -type f -iname 'setup.sh')" >> /release_setup.sh && \
-    echo -e 'echo "Configured PyColumnarPrototype from: ${PyColumnarPrototypeDemo_DIR}"' >> /release_setup.sh && \
-    . /release_setup.sh && \
-    cvmfs-venv-rebase && \
-    python -c 'import PyColumnarPrototype; print(f"{PyColumnarPrototype.column_maker()=}")'
-
 # Always have this be the last edit to /release_setup.sh
 RUN echo -e "\n# Ensure that the virtual environment is always at the HEAD of PYTHONPATH\ncvmfs-venv-rebase" >> /release_setup.sh
 
@@ -86,7 +58,8 @@ USER atlas
 RUN echo -e '\n# Activate AnalysisBase environment on login shell\n. /release_setup.sh\n' >> /home/atlas/.bashrc && \
     . /release_setup.sh && \
     mkdir -p $(jupyter --config) && \
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    python -c 'import python_tool_handle; tool_handle = python_tool_handle.PythonToolHandle(); print(tool_handle)'
 
 # $(jupyter --config) should be /home/atlas/.jupyter/
 COPY --chown=atlas docker/jupyter_lab_config.py /home/atlas/.jupyter/
