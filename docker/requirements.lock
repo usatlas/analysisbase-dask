@@ -325,10 +325,6 @@ caio==0.9.17 \
     --hash=sha256:c55d4dc6b3a36f93237ecd6360e1c131c3808bc47d4191a130148a99b80bb311 \
     --hash=sha256:fca916240597005d2b734f1442fa3c3cfb612bf46e0978b5232e5492a371de38
     # via aiofile
-ccorp-yaml-include-relative-path==0.0.4 \
-    --hash=sha256:08a7ab4438ad30fdbc86e1b97693d5e22197767a9d2b1db2e02d287908c21be3 \
-    --hash=sha256:1c0fccf6684528966e17e24895319086dd94d29afa4e1b0ec2594f5ed6014faf
-    # via servicex
 certifi==2024.8.30 \
     --hash=sha256:922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8 \
     --hash=sha256:bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9
@@ -518,9 +514,9 @@ cloudpickle==3.0.0 \
     #   coffea
     #   dask
     #   distributed
-coffea==2024.8.1 \
-    --hash=sha256:0febede88d039b3e5e767915c461dc0fdbe7dc0503854c94fbce3a41889a51e6 \
-    --hash=sha256:d11cf70bd3cf82da5f3cd4508696b6cd5af576033fa83f2dd37fb5eea81411f5
+coffea==2025.1.1 \
+    --hash=sha256:0744b1c951973951bacb48708e37fe481697f696aa1b89c28db4a9cfc2ce26d6 \
+    --hash=sha256:89dab6439587487c39554e1f6df3b7bb7a128c403553f120ef5fe40998157637
     # via -r requirements.txt
 colorama==0.4.6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
@@ -790,15 +786,15 @@ dask==2024.4.2 \
     #   dask-histogram
     #   dask-kubernetes
     #   distributed
-dask-awkward==2024.7.0 \
-    --hash=sha256:4afd8ca075cbe1aad03e0b2b5e992f06db0134a76f08728636867bed2f6a11de \
-    --hash=sha256:d8d03e3840db2497466d88cddfd8a36051efefdc1771e01cfd2d986738a00426
+dask-awkward==2024.12.2 \
+    --hash=sha256:13c5ef32c5489e9e32e9f9163eb13e045f722ed6ed0f17ce1e07f892fc77a547 \
+    --hash=sha256:9679026aa40be125e45f92abccb39a2cdbe18018c6a63d415c8dd387a771ac42
     # via
     #   -r requirements.txt
     #   coffea
-dask-histogram==2024.3.0 \
-    --hash=sha256:480502f570a62d151c80afd6e5a8526f0ecb50c72b735b8913d258892e7ed573 \
-    --hash=sha256:834d4d25f5e2c417f5e792fafaa55484c20c9f3812d175125de7ac34f994ef7b
+dask-histogram==2024.12.1 \
+    --hash=sha256:49a3b35b25fbaf67c137c71d0a6c7549d6c5e42e717a13188a7dce93688632df \
+    --hash=sha256:cbb8c660c64eaed5c92d1987e9bad5287487548315befb00140caf90201b1641
     # via coffea
 dask-kubernetes==2024.4.2 \
     --hash=sha256:2b848e07bd05da4e63a0312e13d8f4d43c9309aad175aced873dffc299348e74 \
@@ -2614,12 +2610,10 @@ rsa==4.9 \
     --hash=sha256:90260d9058e514786967344d0ef75fa8727eed8a7d2e43ce9f4bcf1b536174f7 \
     --hash=sha256:e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21
     # via google-auth
-ruamel-yaml==0.18.6 \
-    --hash=sha256:57b53ba33def16c4f3d807c0ccbc00f8a6081827e81ba2491691b76882d0c636 \
-    --hash=sha256:8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b
-    # via
-    #   ccorp-yaml-include-relative-path
-    #   servicex
+ruamel-yaml==0.18.10 \
+    --hash=sha256:20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58 \
+    --hash=sha256:30f22513ab2301b3d2b577adc121c6471f28734d3d9728581245f1e76468b4f1
+    # via servicex
 ruamel-yaml-clib==0.2.8 \
     --hash=sha256:024cfe1fc7c7f4e1aff4a81e718109e13409767e4f871443cbff3dba3578203d \
     --hash=sha256:03d1162b6d1df1caa3a4bd27aa51ce17c9afc2046c31b0ad60a0a96ec22f8001 \
@@ -2703,9 +2697,9 @@ send2trash==1.8.3 \
     --hash=sha256:0c31227e0bd08961c7665474a3d1ef7193929fedda4233843689baa056be46c9 \
     --hash=sha256:b18e7a3966d99871aefeb00cfbcfdced55ce4871194810fc71f4aa484b953abf
     # via jupyter-server
-servicex==3.0.0 \
-    --hash=sha256:10fe7aa45ade9ba978563e20cf51f80aa149139423fd0b0766cd7e72e06e1f74 \
-    --hash=sha256:3d9c70ea43e5dabb2831564a325443ae9855ebea92dfac317ac691c928fe8da1
+servicex==3.1.0 \
+    --hash=sha256:1c7f042abb3c62dcddfbd4e0a95fa53844a3eb1787637d4d66748796dc195c34 \
+    --hash=sha256:ebbedeffcaf436f086b1ddc8f3882f2a95a8295556eb54439693e3e0485737d2
     # via
     #   -r requirements.txt
     #   func-adl-servicex
@@ -2866,9 +2860,9 @@ uhi==0.4.0 \
     # via
     #   histoprint
     #   mplhep
-uproot==5.4.0 \
-    --hash=sha256:9ce4da504bbd002b1fbcbbba40ce916314e132c3c7ebe4a6faead67c76398c52 \
-    --hash=sha256:b8332c76baf3f327f84972a9b4d55a72c153f324331cdb85a1b0490bd14cf1b1
+uproot==5.5.1 \
+    --hash=sha256:6a04d0cbf99b223c1391a24412547e9cfac79f5a6d0d4bc781359b8016a89373 \
+    --hash=sha256:e4c7092d1e00677cd97f4850085ae8bc17e6a78e11ea7ee794fa4312e8e4a96d
     # via
     #   -r requirements.txt
     #   coffea

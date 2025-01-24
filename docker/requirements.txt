@@ -1,11 +1,11 @@
-uproot==5.4.0
+uproot==5.5.1
 # Do not upgrade Dask until move off KubeCluster
 # Requires https://github.com/usatlas/analysisbase-dask-uc/issues/9
 dask[distributed]==2024.4.2
-dask-awkward==2024.7.0
+dask-awkward==2024.12.2
 fsspec-xrootd==0.3.0
 # Z->ee notebook
-coffea==2024.8.1
+coffea==2025.1.1
 zstandard==0.23.0
 mplhep==0.3.51
 vector==1.4.1
@@ -26,7 +26,7 @@ ipywidgets==8.1.2
 graphviz==0.20.3
 jupyter-server-proxy==4.1.2
 # servicex
-servicex==3.0.0
+servicex==3.1.0
 func-adl-servicex==2.2
 func_adl_servicex_xaodr22==2.0.1.22.2.107
 tenacity==9.0.0
