@@ -1,6 +1,7 @@
 uproot==5.0.13
 dask[distributed]==2024.3.1
 dask-awkward==2023.9.3
+dask-gateway==2024.1.0
 fsspec-xrootd==0.2.4
 # Z->ee notebook
 git+https://github.com/CoffeaTeam/coffea@52950d10eeb43fc912807dfea9955f8d80c85c39

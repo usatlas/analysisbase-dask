@@ -78,6 +78,7 @@ aiohttp==3.9.3 \
     --hash=sha256:feeb18a801aacb098220e2c3eea59a512362eb408d4afd0c242044c33ad6d542 \
     --hash=sha256:ff30218887e62209942f91ac1be902cc80cddb86bf00fbc6783b7a43b2bea26f
     # via
+    #   dask-gateway
     #   jupyter-server-proxy
     #   kopf
     #   kr8s
@@ -151,6 +152,7 @@ awkward==2.4.4 \
     --hash=sha256:1c014c2f53e1f6955ee4a31f182b82818ac3ece03bec14ecc7a086a25007df1c \
     --hash=sha256:d52f0162ef97b1764e08552e826077d40e03424402eefbab9c32bf9a61ae7050
     # via
+    #   -r requirements.txt
     #   coffea
     #   dask-awkward
     #   uproot
@@ -439,6 +441,7 @@ click==8.1.7 \
     --hash=sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de
     # via
     #   dask
+    #   dask-gateway
     #   distributed
     #   histoprint
     #   kopf
@@ -450,6 +453,7 @@ cloudpickle==3.0.0 \
     #   dask
     #   distributed
 coffea @ git+https://github.com/CoffeaTeam/coffea@52950d10eeb43fc912807dfea9955f8d80c85c39
+    # via -r requirements.txt
 comm==0.2.2 \
     --hash=sha256:3fd7a84065306e07bea1773df6eb8282de51ba82f77c72f9c85716ab11fe980e \
     --hash=sha256:e6fb86cb70ff661ee8c9c14e7d36d6de3b4066f1441be4063df9c5009f0a64d3
@@ -557,15 +561,23 @@ dask==2024.3.1 \
     --hash=sha256:1ac260b8716b1a9fc144c0d7f958336812cfc3ef542a3742c9ae02387189b32b \
     --hash=sha256:78bee2ffd735514e572adaa669fc2a437ec256aecb6bec036a1f5b8dd36b2e60
     # via
+    #   -r requirements.txt
     #   coffea
     #   dask-awkward
+    #   dask-gateway
     #   dask-histogram
     #   dask-kubernetes
     #   distributed
 dask-awkward==2023.9.3 \
     --hash=sha256:1b2f51e34f4000300ee6133ed7b93a8ee59d59a4a85001d6998a806189534688 \
     --hash=sha256:a9578ec4cc941e113998c9c9ece8be3ac294e7e5b5a3c08faff202b492a8329c
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
+dask-gateway==2024.1.0 \
+    --hash=sha256:4bd362e8ca01c71d3417259fb239f5baa5b02fb36dd7e6bebbf9cc4344aa3f95 \
+    --hash=sha256:b9f14dcc63780ac60ae2d2cb15a1bb01318758f831ff97128677e6dcade2e7c4
+    # via -r requirements.txt
 dask-histogram==2024.3.0 \
     --hash=sha256:480502f570a62d151c80afd6e5a8526f0ecb50c72b735b8913d258892e7ed573 \
     --hash=sha256:834d4d25f5e2c417f5e792fafaa55484c20c9f3812d175125de7ac34f994ef7b
@@ -573,9 +585,11 @@ dask-histogram==2024.3.0 \
 dask-kubernetes==2024.3.1 \
     --hash=sha256:16effb9ba88803c3d2fe73594c7a6888a040b66686ee00321cb40c5b98bd6b1d \
     --hash=sha256:bbee62f6eaec491b3a7070bb39f7c93acdb94bfd242928b78291a940fa94464f
+    # via -r requirements.txt
 dask-labextension==7.0.0 \
     --hash=sha256:34fd1ee80a7259dc292a789cc82e4563d7cd1f5a26eb2ee8b434517482f82027 \
     --hash=sha256:45a60bd0ad31c5e425986b7e40a5aa242aa582ea868025ac2b82d0aa16ffcb8a
+    # via -r requirements.txt
 debugpy==1.8.1 \
     --hash=sha256:016a9fcfc2c6b57f939673c874310d8581d51a0fe0858e7fac4e240c5eb743cb \
     --hash=sha256:0de56aba8249c28a300bdb0672a9b94785074eb82eb672db66c8144fff673146 \
@@ -613,6 +627,7 @@ distributed==2024.3.1 \
     --hash=sha256:abab8658122e97c507ce8a5b0d46dc6cb414a2a531f92e1c5933d7c5e0dd65ac
     # via
     #   dask
+    #   dask-gateway
     #   dask-kubernetes
     #   dask-labextension
 exceptiongroup==1.2.0 \
@@ -768,6 +783,7 @@ fsspec==2024.3.1 \
 fsspec-xrootd==0.2.4 \
     --hash=sha256:3d3440e0e26da491af1213c5457b062590b1d1f3c61ce768e81ce45031c8117f \
     --hash=sha256:e02cad577b3ea21e6415b7a49feef78c7489990eff08cb745449d9f992b26924
+    # via -r requirements.txt
 google-auth==2.29.0 \
     --hash=sha256:672dff332d073227550ffc7457868ac4218d6c500b155fe6cc17d2b13602c360 \
     --hash=sha256:d452ad095688cd52bae0ad6fafe027f6a6d6f560e810fec20914e17a09526415
@@ -775,6 +791,7 @@ google-auth==2.29.0 \
 graphviz==0.20.2 \
     --hash=sha256:63d1ae75f1ca60f980e1cd3a61a678eef8de645ef8427736b2bb9bdd035ca44b \
     --hash=sha256:d29ca3aadbe5d6e6c584045b7ec4fc1c15af2448dc1c0211b5e94344833243da
+    # via -r requirements.txt
 h11==0.14.0 \
     --hash=sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d \
     --hash=sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761
@@ -835,6 +852,7 @@ ipython==8.18.1 \
 ipywidgets==8.1.2 \
     --hash=sha256:bbe43850d79fb5e906b14801d6c01402857996864d1e5b6fa62dd2ee35559f60 \
     --hash=sha256:d0b9b41e49bae926a866e613a39b0f0097745d2b9f1f3dd406641b4a57ec42c9
+    # via -r requirements.txt
 iso8601==2.1.0 \
     --hash=sha256:6b1d3829ee8921c4301998c909f7829fa9ed3cbdac0d3b16af2d743aed1ba8df \
     --hash=sha256:aac4145c4dcb66ad8b648a02830f5e2ff6c24af20f4f482689be402db2429242
@@ -915,7 +933,9 @@ jupyter-server==2.13.0 \
 jupyter-server-proxy==4.1.2 \
     --hash=sha256:6fd8ce88a0100e637b48f1d3aa32f09672bcb2813dc057d70567f0a40b1237f5 \
     --hash=sha256:f97bd0c6bbba4931d8ae22bef872703c9785fc1258c4bc196955e2bd034f3eaa
-    # via dask-labextension
+    # via
+    #   -r requirements.txt
+    #   dask-labextension
 jupyter-server-terminals==0.5.3 \
     --hash=sha256:41ee0d7dc0ebf2809c668e0fc726dfaf258fcd3e769568996ca731b6194ae9aa \
     --hash=sha256:5ae0295167220e9ace0edcfdb212afd2b01ee8d179fe6f23c899590e9b8a5269
@@ -924,6 +944,7 @@ jupyterlab==4.1.5 \
     --hash=sha256:3bc843382a25e1ab7bc31d9e39295a9f0463626692b7995597709c0ab236ab2c \
     --hash=sha256:c9ad75290cb10bfaff3624bf3fbb852319b4cce4c456613f8ebbaa98d03524db
     # via
+    #   -r requirements.txt
     #   dask-labextension
     #   notebook
 jupyterlab-pygments==0.3.0 \
@@ -943,6 +964,7 @@ jupyterlab-widgets==3.0.10 \
 jupytext==1.16.1 \
     --hash=sha256:68c7b68685e870e80e60fda8286fbd6269e9c74dc1df4316df6fe46eabc94c99 \
     --hash=sha256:796ec4f68ada663569e5d38d4ef03738a01284bfe21c943c485bc36433898bd0
+    # via -r requirements.txt
 kiwisolver==1.4.5 \
     --hash=sha256:00bd361b903dc4bbf4eb165f24d1acbee754fce22ded24c3d56eec268658a5cf \
     --hash=sha256:040c1aebeda72197ef477a906782b5ab0d387642e93bda547336b8957c61022e \
@@ -1256,7 +1278,9 @@ mistune==3.0.2 \
 mplhep==0.3.41 \
     --hash=sha256:36b6fe89a3990ef8578b2035f2b0764d1243fc8fdd76ebcdc74159ed4b8a3178 \
     --hash=sha256:d4bf5ed80daefb8f90116256da292e10d2c3d31e4a8637ebec8ea9f95b789f01
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
 mplhep-data==0.0.3 \
     --hash=sha256:a1eba7727fab31902e6fcd113c8f4b12ff3fb0666781e7514f8b79093cdc1c65 \
     --hash=sha256:b54d257f3f53c93a442cda7a6681ce267277e09173c0b41fd78820f78321772f
@@ -1436,6 +1460,7 @@ nest-asyncio==1.6.0 \
 notebook==7.1.2 \
     --hash=sha256:efc2c80043909e0faa17fce9e9b37c059c03af0ec99a4d4db84cb21d9d2e936a \
     --hash=sha256:fc6c24b9aef18d0cd57157c9c47e95833b9b0bdc599652639acf0bdb61dc7d5f
+    # via -r requirements.txt
 notebook-shim==0.2.4 \
     --hash=sha256:411a5be4e9dc882a074ccbcae671eda64cceb068767e9a3419096986560e1cef \
     --hash=sha256:b4b2cfa1b65d98307ca24361f5b30fe785b53c3fd07b7a47e89acb5e6ac638cb
@@ -1575,6 +1600,7 @@ pandas==2.2.1 \
     --hash=sha256:f821213d48f4ab353d20ebc24e4faf94ba40d76680642fb7ce2ea31a3ad94f9b \
     --hash=sha256:f9d3558d263073ed95e46f4650becff0c5e1ffe0fc3a015de3c79283dfbdb3df
     # via
+    #   -r requirements.txt
     #   bokeh
     #   coffea
 pandocfilters==1.5.1 \
@@ -1954,6 +1980,7 @@ pyyaml==6.0.1 \
     # via
     #   bokeh
     #   dask
+    #   dask-gateway
     #   distributed
     #   jupyter-events
     #   jupytext
@@ -2316,6 +2343,7 @@ tornado==6.4 \
     --hash=sha256:fd03192e287fbd0899dd8f81c6fb9cbbc69194d2074b38f384cb6fa72b80e9c2
     # via
     #   bokeh
+    #   dask-gateway
     #   distributed
     #   ipykernel
     #   jupyter-client
@@ -2376,7 +2404,9 @@ uhi==0.4.0 \
 uproot==5.0.13 \
     --hash=sha256:055b4b1b827074fffa718194f23759c15573d2de3ea0f0f342b60b27baa9f113 \
     --hash=sha256:0b1a36c98a010bae5bea52f7fd98e85fee82cd7154af42a5e5a1ca6baf3dae25
-    # via coffea
+    # via
+    #   -r requirements.txt
+    #   coffea
 uri-template==1.3.0 \
     --hash=sha256:0e00f8eb65e18c7de20d595a14336e9f337ead580c70934141624b6d1ffdacc7 \
     --hash=sha256:a44a133ea12d44a0c0f06d7d42a52d71282e77e2f937d8abd5655b8d56fc1363
@@ -2385,6 +2415,7 @@ urllib3==1.26.18 \
     --hash=sha256:34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07 \
     --hash=sha256:f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0
     # via
+    #   -r requirements.txt
     #   distributed
     #   kubernetes
     #   kubernetes-asyncio
@@ -2393,6 +2424,7 @@ urllib3==1.26.18 \
 vector==1.3.1 \
     --hash=sha256:1a94210c21a5d38d36d0fa36c1afb92c2857ba1d09c824b0d4b8615d51f4f2e5 \
     --hash=sha256:5ab5bc968451704987b5315e84ec7a815b107c6e6ff164c5dcb768827bea8386
+    # via -r requirements.txt
 wcwidth==0.2.13 \
     --hash=sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859 \
     --hash=sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5
@@ -2417,6 +2449,7 @@ weightedstats==0.4.1 \
     --hash=sha256:5633991d01864dca581816da3070eed95fb3671020937a8dbad7afab4a38ef0c \
     --hash=sha256:6ead0c27df10b0598d7e3a1c2bc201b925f5ac47099df0dafccce91932a5d155 \
     --hash=sha256:beb488a3f46aa06dbc8491578ec7e408847ca682edc7ec90846f6df9e36cab50
+    # via -r requirements.txt
 widgetsnbextension==4.0.10 \
     --hash=sha256:64196c5ff3b9a9183a8e699a4227fb0b7002f252c814098e66c4d1cd0644688f \
     --hash=sha256:d37c3724ec32d8c48400a435ecfa7d3e259995201fbefa37163124a9fcb393cc
@@ -2574,3 +2607,4 @@ zstandard==0.22.0 \
     --hash=sha256:f1a4b358947a65b94e2501ce3e078bbc929b039ede4679ddb0460829b12f7375 \
     --hash=sha256:f9b2cde1cd1b2a10246dbc143ba49d942d14fb3d2b4bccf4618d475c65464912 \
     --hash=sha256:fe3390c538f12437b859d815040763abc728955a52ca6ff9c5d4ac707c4ad98e
+    # via -r requirements.txt
