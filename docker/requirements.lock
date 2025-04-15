@@ -105,6 +105,7 @@ aiohttp==3.10.5 \
     # via
     #   aiohttp-retry
     #   coffea
+    #   dask-gateway
     #   jupyter-server-proxy
     #   kopf
     #   kubernetes-asyncio
@@ -503,6 +504,7 @@ click==8.1.7 \
     --hash=sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de
     # via
     #   dask
+    #   dask-gateway
     #   distributed
     #   histoprint
     #   kopf
@@ -783,6 +785,7 @@ dask==2024.4.2 \
     #   -r requirements.txt
     #   coffea
     #   dask-awkward
+    #   dask-gateway
     #   dask-histogram
     #   dask-kubernetes
     #   distributed
@@ -792,6 +795,10 @@ dask-awkward==2024.12.2 \
     # via
     #   -r requirements.txt
     #   coffea
+dask-gateway==2024.1.0 \
+    --hash=sha256:4bd362e8ca01c71d3417259fb239f5baa5b02fb36dd7e6bebbf9cc4344aa3f95 \
+    --hash=sha256:b9f14dcc63780ac60ae2d2cb15a1bb01318758f831ff97128677e6dcade2e7c4
+    # via -r requirements.txt
 dask-histogram==2024.12.1 \
     --hash=sha256:49a3b35b25fbaf67c137c71d0a6c7549d6c5e42e717a13188a7dce93688632df \
     --hash=sha256:cbb8c660c64eaed5c92d1987e9bad5287487548315befb00140caf90201b1641
@@ -841,6 +848,7 @@ distributed==2024.4.2 \
     --hash=sha256:801d3b5e5fe5273d0da335db527a12568ee9ad3368eba6a735bb852cf6753dac
     # via
     #   dask
+    #   dask-gateway
     #   dask-kubernetes
     #   dask-labextension
 exceptiongroup==1.2.2 \
@@ -2328,6 +2336,7 @@ pyyaml==6.0.2 \
     # via
     #   bokeh
     #   dask
+    #   dask-gateway
     #   distributed
     #   jupyter-events
     #   jupytext
@@ -2795,6 +2804,7 @@ tornado==6.4.1 \
     --hash=sha256:e2e20b9113cd7293f164dc46fffb13535266e713cdb87bd2d15ddb336e96cfc4
     # via
     #   bokeh
+    #   dask-gateway
     #   distributed
     #   ipykernel
     #   jupyter-client
